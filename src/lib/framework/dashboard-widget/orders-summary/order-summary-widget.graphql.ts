@@ -1,0 +1,18 @@
+import { graphql } from '@/graphql/graphql'
+
+export const orderSummaryQuery = graphql(`
+  query GetOrderSummary($start: DateTime!, $end: DateTime!) {
+    orders(
+      options: {
+        filter: { orderPlacedAt: { between: { start: $start, end: $end } } }
+      }
+    ) {
+      totalItems
+      items {
+        id
+        totalWithTax
+        currencyCode
+      }
+    }
+  }
+`)

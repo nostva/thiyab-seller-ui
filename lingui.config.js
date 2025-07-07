@@ -1,0 +1,12 @@
+import { defineConfig } from '@lingui/cli'
+
+export default defineConfig({
+  sourceLocale: 'en',
+  locales: ['en', 'ar'],
+  catalogs: [
+    {
+      path: '<rootDir>/src/i18n/locales/{locale}',
+      include: ['<rootDir>/src'],
+    },
+  ],
+})

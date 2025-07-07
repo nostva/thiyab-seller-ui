@@ -1,0 +1,449 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-07-07 08:51+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ar\n"
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/stock-level-label.tsx:29
+msgid "Stock on hand"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/stock-level-label.tsx:29
+msgid "Stock allocated"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/role-selector.tsx:54
+msgid "Select a role"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/role-selector.tsx:55
+msgid "Search roles..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/paginated-list-data-table.tsx:619
+msgid "Deleted successfully"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/paginated-list-data-table.tsx:621
+#: src/lib/components/shared/paginated-list-data-table.tsx:627
+msgid "Failed to delete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/language-selector.tsx:52
+msgid "Select a language"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/language-selector.tsx:53
+msgid "Search languages..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/customer-address-form.tsx:261
+msgid "Select a country"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/currency-selector.tsx:35
+msgid "Select a currency"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/currency-selector.tsx:36
+msgid "Search currencies..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/channel-selector.tsx:51
+msgid "Select a channel"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/lib/components/shared/channel-selector.tsx:52
+msgid "Search channels..."
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:28
+msgid "!="
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:80
+msgid "{operator}"
+msgstr ""
+
+#: src/lib/framework/dashboard-widget/base-widget.tsx:111
+msgid "{title}"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:25
+msgid "="
+msgstr ""
+
+#: src/lib/components/shared/customer-group-selector.tsx:57
+msgid "Add customer groups"
+msgstr ""
+
+#: src/lib/components/shared/facet-value-selector.tsx:215
+msgid "Add facet values"
+msgstr ""
+
+#: src/lib/components/data-table/add-filter-menu.tsx:35
+msgid "Add filter"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:35
+msgid "after"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:167
+msgid "Apartment, suite, etc."
+msgstr ""
+
+#: src/lib/components/data-table/data-table-filter-dialog.tsx:85
+msgid "Apply filter"
+msgstr ""
+
+#: src/lib/components/shared/navigation-confirmation.tsx:49
+msgid "Are you sure you want to navigate away from this page? Any unsaved changes will be lost."
+msgstr ""
+
+#: src/lib/components/shared/facet-value-selector.tsx:250
+msgid "Back to search"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:33
+msgid "before"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:38
+msgid "between"
+msgstr ""
+
+#: src/lib/components/shared/navigation-confirmation.tsx:57
+#: src/lib/components/shared/customer-address-form.tsx:352
+#: src/lib/components/shared/confirmation-dialog.tsx:44
+#: src/lib/components/shared/asset/asset-focal-point-editor.tsx:101
+msgid "Cancel"
+msgstr ""
+
+#: src/lib/components/layout/channel-switcher.tsx:63
+msgid "Channels"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:188
+msgid "City"
+msgstr ""
+
+#: src/lib/components/data-table/data-table-filter-dialog.tsx:73
+msgid "Clear filter"
+msgstr ""
+
+#: src/lib/components/data-table/data-table-view-options.tsx:103
+msgid "Columns"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:125
+msgid "Company"
+msgstr ""
+
+#: src/lib/components/shared/navigation-confirmation.tsx:60
+msgid "Confirm"
+msgstr ""
+
+#: src/lib/components/shared/navigation-confirmation.tsx:46
+msgid "Confirm navigation"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:73
+msgid "contains"
+msgstr ""
+
+#: src/lib/components/shared/confirmation-dialog.tsx:53
+msgid "Continue"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:251
+msgid "Country"
+msgstr ""
+
+#: src/lib/components/shared/role-code-label.tsx:10
+msgid "Customer"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:337
+msgid "Default Billing Address"
+msgstr ""
+
+#: src/lib/components/shared/channel-code-label.tsx:8
+msgid "Default channel"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:314
+msgid "Default Shipping Address"
+msgstr ""
+
+#: src/lib/components/shared/paginated-list-data-table.tsx:636
+msgid "Delete"
+msgstr ""
+
+#: src/lib/components/layout/language-dialog.tsx:44
+msgid "Display language"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:75
+msgid "does not contain"
+msgstr ""
+
+#: src/lib/components/shared/history-timeline/history-entry.tsx:106
+#: src/lib/components/shared/asset/asset-gallery.tsx:346
+msgid "Edit"
+msgstr ""
+
+#: src/lib/components/shared/history-timeline/history-note-editor.tsx:46
+msgid "Edit Note"
+msgstr ""
+
+#: src/lib/components/shared/error-page.tsx:24
+msgid "Error"
+msgstr ""
+
+#: src/lib/components/shared/facet-value-selector.tsx:283
+msgid "Facets"
+msgstr ""
+
+#: src/lib/components/data-table/filters/data-table-boolean-filter.tsx:63
+msgid "False"
+msgstr ""
+
+#: src/lib/components/data-table/data-table-filter-dialog.tsx:38
+msgid "Filter by {columnId}"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:104
+msgid "Full Name"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:50
+msgid "greater than"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:56
+msgid "greater than or equal"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:45
+msgid "in"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:35
+msgid "is after"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:33
+msgid "is before"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:40
+msgid "is between"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:25
+msgid "is equal to"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:52
+msgid "is greater than"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:58
+msgid "is greater than or equal to"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:45
+msgid "is in"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:64
+msgid "is less than"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:70
+msgid "is less than or equal to"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:30
+msgid "is not equal to"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:47
+msgid "is not in"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:43
+msgid "is null"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:62
+msgid "less than"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:68
+msgid "less than or equal"
+msgstr ""
+
+#: src/lib/components/shared/seller-selector.tsx:105
+#: src/lib/components/shared/facet-value-selector.tsx:237
+#: src/lib/components/shared/customer-selector.tsx:102
+#: src/lib/components/shared/country-selector.tsx:100
+msgid "Loading..."
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:77
+msgid "matches regex"
+msgstr ""
+
+#: src/lib/components/shared/country-selector.tsx:102
+msgid "No countries found"
+msgstr ""
+
+#: src/lib/components/shared/customer-selector.tsx:104
+msgid "No customers found"
+msgstr ""
+
+#: src/lib/components/shared/facet-value-selector.tsx:276
+msgid "No more items"
+msgstr ""
+
+#: src/lib/components/shared/facet-value-selector.tsx:239
+msgid "No results found"
+msgstr ""
+
+#: src/lib/components/shared/seller-selector.tsx:107
+msgid "No sellers found"
+msgstr ""
+
+#: src/lib/components/data-table/human-readable-operator.tsx:47
+msgid "not in"
+msgstr ""
+
+#: src/lib/components/shared/history-timeline/history-note-checkbox.tsx:25
+msgid "Note is private"
+msgstr ""
+
+#: src/lib/components/login/login-form.tsx:102
+msgid "Password"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:284
+msgid "Phone Number"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:230
+msgid "Postal Code"
+msgstr ""
+
+#: src/lib/components/layout/language-dialog.tsx:65
+msgid "Sample Formatting"
+msgstr ""
+
+#: src/lib/components/shared/history-timeline/history-note-editor.tsx:59
+msgid "Save"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:356
+msgid "Save Address"
+msgstr ""
+
+#: src/lib/components/shared/tax-category-selector.tsx:55
+msgid "Select a tax category"
+msgstr ""
+
+#: src/lib/components/shared/zone-selector.tsx:52
+msgid "Select a zone"
+msgstr ""
+
+#: src/lib/components/shared/country-selector.tsx:84
+msgid "Select country"
+msgstr ""
+
+#: src/lib/components/shared/customer-selector.tsx:89
+msgid "Select customer"
+msgstr ""
+
+#: src/lib/components/layout/language-dialog.tsx:38
+msgid "Select display language"
+msgstr ""
+
+#: src/lib/components/shared/seller-selector.tsx:88
+msgid "Select seller"
+msgstr ""
+
+#: src/lib/components/shared/asset/asset-focal-point-editor.tsx:110
+msgid "Set Focal Point"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:209
+msgid "State/Province"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:146
+msgid "Street Address"
+msgstr ""
+
+#: src/lib/components/shared/role-code-label.tsx:8
+msgid "Super Admin"
+msgstr ""
+
+#: src/lib/components/data-table/filters/data-table-boolean-filter.tsx:60
+msgid "True"
+msgstr ""
+
+#: src/lib/components/shared/facet-value-selector.tsx:235
+msgid "Type at least 2 characters to search..."
+msgstr ""
+
+#: src/lib/framework/page/detail-page.tsx:148
+msgid "Update"
+msgstr ""
+
+#: src/lib/components/shared/history-timeline/history-note-editor.tsx:49
+msgid "Update the note content or visibility"
+msgstr ""
+
+#: src/lib/components/shared/asset/asset-gallery.tsx:279
+msgid "Upload"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:340
+msgid "Use as the default billing address"
+msgstr ""
+
+#: src/lib/components/shared/customer-address-form.tsx:317
+msgid "Use as the default shipping address"
+msgstr ""
+
+#: src/lib/components/login/login-form.tsx:83
+msgid "Username"
+msgstr ""
+
+#: src/lib/components/shared/history-timeline/history-note-checkbox.tsx:31
+msgid "Visible to admins only"
+msgstr ""
+
+#: src/lib/components/shared/history-timeline/history-note-checkbox.tsx:33
+msgid "Visible to customer"
+msgstr ""
+
+#: src/lib/components/login/login-form.tsx:70
+msgid "Welcome back!"
+msgstr ""

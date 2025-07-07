@@ -1,24 +1,28 @@
-import { defineConfig } from 'vite'
-import viteReact from '@vitejs/plugin-react'
+import { lingui } from '@lingui/vite-plugin'
 import tailwindcss from '@tailwindcss/vite'
+import tanstackRouter from '@tanstack/router-plugin/vite'
+import react from '@vitejs/plugin-react'
+import path from 'node:path'
+import { defineConfig } from 'vite'
 
-import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
-import { resolve } from 'node:path'
-
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    TanStackRouterVite({ autoCodeSplitting: true }),
-    viteReact(),
+    tanstackRouter({
+      autoCodeSplitting: true,
+      routesDirectory: path.join(__dirname, 'src/app/routes'),
+      generatedRouteTree: path.join(__dirname, 'src/app/routeTree.gen.ts'),
+    }),
+    react({
+      babel: {
+        plugins: ['@lingui/babel-plugin-lingui-macro'],
+      },
+    }),
+    lingui(),
     tailwindcss(),
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-  },
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './src/lib'),
     },
   },
 })
