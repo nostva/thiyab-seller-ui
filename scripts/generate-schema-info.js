@@ -74,9 +74,10 @@ function generateSchemaInfo(schema) {
 }
 
 // Generate schema info at build time
-const schemaPath = path.join(__dirname, 'schema.graphql')
+const schemaPath = path.join(__dirname, '..', 'schema.graphql')
 const outputPath = path.join(
   __dirname,
+  '..',
   'src',
   'lib',
   'graphql',

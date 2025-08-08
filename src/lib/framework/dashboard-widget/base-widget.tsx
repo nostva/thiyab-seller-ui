@@ -72,13 +72,19 @@ export function DashboardBaseWidget({
 
         const headerHeight = headerRef.current?.offsetHeight ?? 0
 
+        // Account for transform scale (0.9) used in the dashboard layout
+        const transformScale = 0.9
+        const availableWidth =
+          wrapperRef.current.offsetWidth - paddingLeft - paddingRight
+        const availableHeight =
+          wrapperRef.current.offsetHeight -
+          paddingTop -
+          paddingBottom -
+          headerHeight
+
         setDimensions({
-          width: wrapperRef.current.offsetWidth - paddingLeft - paddingRight,
-          height:
-            wrapperRef.current.offsetHeight -
-            paddingTop -
-            paddingBottom -
-            headerHeight,
+          width: Math.max(availableWidth * transformScale, 200),
+          height: Math.max(availableHeight * transformScale, 150),
         })
       }
     }
@@ -96,7 +102,10 @@ export function DashboardBaseWidget({
     <Card
       ref={wrapperRef}
       key={`dashboard-widget-${id}`}
-      className={cn('h-full w-full flex flex-col rounded-md', !title && 'pt-6')}
+      className={cn(
+        'h-full w-full flex flex-col rounded-md overflow-hidden',
+        !title && 'pt-6',
+      )}
     >
       {title && (
         <CardHeader
@@ -115,7 +124,7 @@ export function DashboardBaseWidget({
           {actions && <div className="flex items-center gap-2">{actions}</div>}
         </CardHeader>
       )}
-      <CardContent ref={contentRef} className="grow">
+      <CardContent ref={contentRef} className="grow overflow-hidden">
         <WidgetContentContext.Provider value={dimensions}>
           {children}
         </WidgetContentContext.Provider>

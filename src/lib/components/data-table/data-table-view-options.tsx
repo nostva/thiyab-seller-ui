@@ -11,7 +11,7 @@ import { CSS } from '@dnd-kit/utilities'
 import type { Table } from '@tanstack/react-table'
 import { GripVertical, Settings2 } from 'lucide-react'
 
-import { Button } from '@/components/ui/button.js'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -19,7 +19,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu.js'
+} from '@/components/ui/dropdown-menu'
 import { usePage } from '@/hooks/use-page'
 import { useUserSettings } from '@/hooks/use-user-settings'
 import { Trans } from '@lingui/react/macro'

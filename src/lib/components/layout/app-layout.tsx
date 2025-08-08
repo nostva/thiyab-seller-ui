@@ -2,7 +2,6 @@ import { Outlet } from '@tanstack/react-router'
 
 import { AppSidebar } from '@/components/layout/app-sidebar'
 import { GeneratedBreadcrumbs } from '@/components/layout/generated-breadcrumbs'
-import { PrereleasePopup } from '@/components/layout/prerelease-popup'
 import { Separator } from '@/components/ui/separator'
 import {
   SidebarInset,
@@ -33,7 +32,6 @@ export function AppLayout() {
           <Outlet />
         </div>
       </SidebarInset>
-      <PrereleasePopup />
     </SidebarProvider>
   )
 }

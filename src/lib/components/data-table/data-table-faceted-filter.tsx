@@ -12,13 +12,13 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/components/ui/command.js'
+} from '@/components/ui/command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover.js'
-import { Separator } from '@/components/ui/separator.js'
+} from '@/components/ui/popover'
+import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
 
 export interface DataTableFacetedFilterOption {

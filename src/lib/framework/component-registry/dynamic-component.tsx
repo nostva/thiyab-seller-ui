@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  COMPONENT_REGISTRY,
-  useComponentRegistry,
-} from './component-registry.js'
+import { COMPONENT_REGISTRY, useComponentRegistry } from './component-registry'
 
 export type DisplayComponentProps<
   T extends keyof (typeof COMPONENT_REGISTRY)['dataDisplay'] | string,

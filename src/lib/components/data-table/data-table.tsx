@@ -18,10 +18,10 @@ import {
 import type { TableOptions } from '@tanstack/table-core'
 import React, { Suspense, useEffect } from 'react'
 
-import { DataTablePagination } from '@/components/data-table/data-table-pagination.js'
-import { DataTableViewOptions } from '@/components/data-table/data-table-view-options.js'
-import { RefreshButton } from '@/components/data-table/refresh-button.js'
-import { Input } from '@/components/ui/input.js'
+import { DataTablePagination } from '@/components/data-table/data-table-pagination'
+import { DataTableViewOptions } from '@/components/data-table/data-table-view-options'
+import { RefreshButton } from '@/components/data-table/refresh-button'
+import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
@@ -29,15 +29,15 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table.js'
-import { useChannel } from '@/hooks/use-channel.js'
+} from '@/components/ui/table'
+import { useChannel } from '@/hooks/use-channel'
 
-import { AddFilterMenu } from './add-filter-menu.js'
+import { AddFilterMenu } from './add-filter-menu'
 import {
   DataTableFacetedFilter,
   type DataTableFacetedFilterOption,
-} from './data-table-faceted-filter.js'
-import { DataTableFilterBadge } from './data-table-filter-badge.js'
+} from './data-table-faceted-filter'
+import { DataTableFilterBadge } from './data-table-filter-badge'
 
 export interface FacetedFilter {
   title: string

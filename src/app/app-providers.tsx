@@ -25,10 +25,12 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
           </ThemeProvider>
         </UserSettingsProvider>
         {process.env.NODE_ENV === 'development' && (
-          <ReactQueryDevtools
-            initialIsOpen={false}
-            buttonPosition="bottom-left"
-          />
+          <>
+            <ReactQueryDevtools
+              initialIsOpen={false}
+              buttonPosition="bottom-right"
+            />
+          </>
         )}
       </QueryClientProvider>
     </I18nProvider>

@@ -10,7 +10,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover.js'
+} from '@/components/ui/popover'
 import { api } from '@/graphql/api'
 import { assetFragment } from '@/graphql/fragments'
 import { graphql } from '@/graphql/graphql'

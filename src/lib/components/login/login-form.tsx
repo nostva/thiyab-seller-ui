@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button.js'
-import { Card, CardContent } from '@/components/ui/card.js'
-import { Input } from '@/components/ui/input.js'
-import { cn } from '@/lib/utils.js'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Trans } from '@lingui/react/macro'
 import { Loader2 } from 'lucide-react'
@@ -9,7 +9,7 @@ import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import { LogoMark } from '../shared/logo-mark.js'
+import { LogoMark } from '../shared/logo-mark'
 import {
   Form,
   FormControl,
@@ -17,7 +17,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form.js'
+} from '../ui/form'
 
 export interface LoginFormProps extends React.ComponentProps<'div'> {
   loginError?: string

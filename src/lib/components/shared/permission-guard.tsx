@@ -1,4 +1,4 @@
-import { usePermissions } from '@/hooks/use-permissions.js'
+import { usePermissions } from '@/hooks/use-permissions'
 import { Permission } from '@vendure/common/lib/generated-types'
 
 export interface PermissionGuardProps {

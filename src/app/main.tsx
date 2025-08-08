@@ -2,12 +2,14 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { registerDefaults } from '@/framework/defaults.ts'
 import { useAuth } from '@/hooks/use-auth.tsx'
+import { Toaster } from '@/index.ts'
+
 import { defaultLocale, dynamicActivate } from '@/providers/i18n-provider.tsx'
 import { AppProviders, queryClient } from './app-providers'
 import { routeTree } from './routeTree.gen.ts'
 import './styles.css'
-import { Toaster } from '@/index.ts'
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
@@ -45,6 +47,7 @@ function App() {
     dynamicActivate(defaultLocale, () => {
       setI18nLoaded(true)
     })
+    registerDefaults()
   }, [])
 
   return (
