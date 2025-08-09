@@ -27,7 +27,7 @@ export const DeleteAssetsBulkAction = ({
             values: {
               count: selection.length,
             },
-            message: 'Deleted {count.length} assets',
+            message: 'Deleted {count} assets',
           }),
         )
       } else {

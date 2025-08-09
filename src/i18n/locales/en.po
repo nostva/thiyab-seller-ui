@@ -1317,7 +1317,7 @@ msgstr "Delete draft"
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_assets/components/asset-bulk-actions.tsx:25
 msgid "assets-deleted"
-msgstr "Deleted {count.length} assets"
+msgstr "Deleted {count} assets"
 
 #. js-lingui-explicit-id
 #: src/app/common/delete-bulk-action.tsx:109
@@ -2311,7 +2311,7 @@ msgstr "Product Variants"
 #: src/app/routes/_authenticated/_products/products.tsx:23
 #: src/app/routes/_authenticated/_products/products.tsx:32
 msgid "Products"
-msgstr "المنتجات"
+msgstr "Products"
 
 #: src/app/routes/_authenticated/_profile/profile.tsx:33
 #: src/app/routes/_authenticated/_profile/profile.tsx:77

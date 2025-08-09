@@ -2311,7 +2311,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_products/products.tsx:23
 #: src/app/routes/_authenticated/_products/products.tsx:32
 msgid "Products"
-msgstr ""
+msgstr "المنتجات"
 
 #: src/app/routes/_authenticated/_profile/profile.tsx:33
 #: src/app/routes/_authenticated/_profile/profile.tsx:77
