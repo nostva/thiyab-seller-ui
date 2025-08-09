@@ -1,9 +1,8 @@
 import { type AnyRoute, createRoute, Router } from '@tanstack/react-router'
 import { useMemo } from 'react'
-
-import { ErrorPage } from '@/components/shared/error-page'
-import { AUTHENTICATED_ROUTE_PREFIX } from '@/constants'
-import { extensionRoutes } from '@/framework/page/page-api'
+import { ErrorPage } from '../../components/shared/error-page.js'
+import { AUTHENTICATED_ROUTE_PREFIX } from '../../constants.js'
+import { extensionRoutes } from './page-api.js'
 
 /**
  * Extends the TanStack Router with additional routes for each dashboard

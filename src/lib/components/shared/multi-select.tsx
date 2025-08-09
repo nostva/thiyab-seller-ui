@@ -1,14 +1,14 @@
+import { Badge } from '@/components/ui/badge.js'
+import { Button } from '@/components/ui/button.js'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
-import { Badge } from '@/components/ui/badge'
-import { X, ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+} from '@/components/ui/popover.js'
+import { cn } from '@/lib/utils.js'
+import { ChevronDown, X } from 'lucide-react'
 import { useState } from 'react'
-import { Input } from '../ui/input'
+import { Input } from '../ui/input.js'
 
 export interface MultiSelectProps<T extends boolean> {
   value: T extends true ? string[] : string
@@ -81,7 +81,7 @@ export function MultiSelect<T extends boolean>(props: MultiSelectProps<T>) {
           className={cn(
             'w-full justify-between',
             'min-h-[2.5rem] h-auto',
-            'flex flex-wrap gap-1 p-1',
+            'flex flex-wrap gap-1 p-1 shadow-xs',
             className,
           )}
         >

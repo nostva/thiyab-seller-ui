@@ -1,15 +1,13 @@
-import { useState } from 'react'
-
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button.js'
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
-
-import { AssetGallery, type Asset } from './asset-gallery'
+} from '@/components/ui/dialog.js'
+import { useState } from 'react'
+import { type Asset, AssetGallery } from './asset-gallery.js'
 
 interface AssetPickerDialogProps {
   open: boolean
@@ -56,6 +54,7 @@ export function AssetPickerDialog({
             multiSelect="manual"
             initialSelectedAssets={initialSelectedAssets}
             fixedHeight={true}
+            displayBulkActions={false}
           />
         </div>
 

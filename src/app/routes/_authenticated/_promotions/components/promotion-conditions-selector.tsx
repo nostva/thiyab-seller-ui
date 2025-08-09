@@ -1,0 +1,38 @@
+import { ConfigurableOperationMultiSelector } from '@/components/shared/configurable-operation-multi-selector.js'
+import { configurableOperationDefFragment } from '@/graphql/fragments.js'
+import { graphql } from '@/graphql/graphql.js'
+import { ConfigurableOperationInput as ConfigurableOperationInputType } from '@vendure/common/lib/generated-types'
+
+export const promotionConditionsDocument = graphql(
+  `
+    query GetPromotionConditions {
+      promotionConditions {
+        ...ConfigurableOperationDef
+      }
+    }
+  `,
+  [configurableOperationDefFragment],
+)
+
+interface PromotionConditionsSelectorProps {
+  value: ConfigurableOperationInputType[]
+  onChange: (value: ConfigurableOperationInputType[]) => void
+}
+
+export function PromotionConditionsSelector({
+  value,
+  onChange,
+}: Readonly<PromotionConditionsSelectorProps>) {
+  return (
+    <ConfigurableOperationMultiSelector
+      value={value}
+      onChange={onChange}
+      queryDocument={promotionConditionsDocument}
+      queryKey="promotionConditions"
+      dataPath="promotionConditions"
+      buttonText="Add condition"
+      dropdownTitle="Available Conditions"
+      showEnhancedDropdown={true}
+    />
+  )
+}

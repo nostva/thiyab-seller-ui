@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react'
-
-import { Input } from '@/components/ui/input'
 import {
   Select,
-  SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui/select.js'
 
-import { HumanReadableOperator } from '../human-readable-operator'
+import { Input } from '@/components/ui/input.js'
+import { SelectContent } from '@/components/ui/select.js'
+import { useEffect, useState } from 'react'
+import { HumanReadableOperator } from '../human-readable-operator.js'
 
 export interface DataTableIdFilterProps {
   value: Record<string, any> | undefined
@@ -21,7 +20,7 @@ export const ID_OPERATORS = ['eq', 'notEq', 'in', 'notIn', 'isNull'] as const
 export function DataTableIdFilter({
   value: incomingValue,
   onChange,
-}: DataTableIdFilterProps) {
+}: Readonly<DataTableIdFilterProps>) {
   const initialOperator = incomingValue ? Object.keys(incomingValue)[0] : 'eq'
   const initialValue = incomingValue ? Object.values(incomingValue)[0] : ''
   const [operator, setOperator] = useState<string>(initialOperator ?? 'eq')

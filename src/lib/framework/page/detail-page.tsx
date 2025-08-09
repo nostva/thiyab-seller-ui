@@ -1,20 +1,30 @@
+import { DateTimeInput } from '@/components/data-input/datetime-input.js'
+import { FormFieldWrapper } from '@/components/shared/form-field-wrapper.js'
+import { Button } from '@/components/ui/button.js'
+import { Checkbox } from '@/components/ui/checkbox.js'
+import { Input } from '@/components/ui/input.js'
+import { NEW_ENTITY_PATH } from '@/constants.js'
+import { useDetailPage } from '@/framework/page/use-detail-page.js'
+import { Trans } from '@/lib/trans.js'
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
-import { Trans } from '@lingui/react/macro'
-import type { AnyRoute } from '@tanstack/react-router'
-import { useNavigate } from '@tanstack/react-router'
-import type { ResultOf, VariablesOf } from 'gql.tada'
+import { type AnyRoute, useNavigate } from '@tanstack/react-router'
+import { type ResultOf, type VariablesOf } from 'gql.tada'
 import { toast } from 'sonner'
-
-import { DateTimeInput } from '@/components/data-input/datetime-input'
-import { FormFieldWrapper } from '@/components/shared/form-field-wrapper'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { NEW_ENTITY_PATH } from '@/constants'
-import { useDetailPage } from '@/framework/page/use-detail-page'
-
-import { getOperationVariablesFields } from '../document-introspection/get-document-structure'
 import {
+  type FieldInfo,
+  getEntityName,
+  getOperationVariablesFields,
+} from '../document-introspection/get-document-structure.js'
+
+import { TranslatableFormFieldWrapper } from '@/components/shared/translatable-form-field.js'
+import { FormControl } from '@/components/ui/form.js'
+import {
+  type ControllerRenderProps,
+  type FieldPath,
+  type FieldValues,
+} from 'react-hook-form'
+import {
+  CustomFieldsPageBlock,
   DetailFormGrid,
   Page,
   PageActionBar,
@@ -22,9 +32,17 @@ import {
   PageBlock,
   PageLayout,
   PageTitle,
-} from '../layout-engine/page-layout'
-import type { DetailEntityPath } from './page-types'
+} from '../layout-engine/page-layout.js'
+import { type DetailEntityPath } from './page-types.js'
 
+/**
+ * @description
+ * **Status: Developer Preview**
+ *
+ * @docsCategory components
+ * @docsPage DetailPage
+ * @since 3.3.0
+ */
 export interface DetailPageProps<
   T extends TypedDocumentNode<any, any>,
   C extends TypedDocumentNode<any, any>,
@@ -34,6 +52,7 @@ export interface DetailPageProps<
   /**
    * @description
    * The name of the entity.
+   * If not provided, it will be inferred from the query document.
    */
   entityName?: string
   /**
@@ -75,6 +94,54 @@ export interface DetailPageProps<
   ) => VariablesOf<U>['input']
 }
 
+export interface DetailPageFieldProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> {
+  fieldInfo: FieldInfo
+  field: ControllerRenderProps<TFieldValues, TName>
+}
+
+/**
+ * Renders form input components based on field type
+ */
+function FieldInputRenderer<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>({ fieldInfo, field }: DetailPageFieldProps<TFieldValues, TName>) {
+  switch (fieldInfo.type) {
+    case 'Int':
+    case 'Float':
+      return (
+        <FormControl>
+          <Input
+            type="number"
+            value={field.value}
+            onChange={(e) => field.onChange(e.target.valueAsNumber)}
+          />
+        </FormControl>
+      )
+    case 'DateTime':
+      return (
+        <FormControl>
+          <DateTimeInput {...field} />
+        </FormControl>
+      )
+    case 'Boolean':
+      return (
+        <FormControl>
+          <Checkbox value={field.value} onCheckedChange={field.onChange} />
+        </FormControl>
+      )
+    default:
+      return (
+        <FormControl>
+          <Input {...field} />
+        </FormControl>
+      )
+  }
+}
+
 /**
  * @description
  * **Status: Developer Preview**
@@ -95,7 +162,7 @@ export function DetailPage<
 >({
   pageId,
   route,
-  entityName,
+  entityName: passedEntityName,
   queryDocument,
   createDocument,
   updateDocument,
@@ -105,6 +172,9 @@ export function DetailPage<
   const params = route.useParams()
   const creatingNewEntity = params.id === NEW_ENTITY_PATH
   const navigate = useNavigate()
+  const inferredEntityName = getEntityName(queryDocument)
+
+  const entityName = passedEntityName ?? inferredEntityName
 
   const { form, submitHandler, entity, isPending, resetForm } = useDetailPage<
     any,
@@ -114,6 +184,7 @@ export function DetailPage<
     queryDocument,
     updateDocument,
     createDocument,
+    entityName,
     params: { id: params.id },
     setValuesForUpdate,
     onSuccess: async (data) => {
@@ -132,6 +203,9 @@ export function DetailPage<
   })
 
   const updateFields = getOperationVariablesFields(updateDocument, 'input')
+  const translations = updateFields.find(
+    (fieldInfo) => fieldInfo.name === 'translations',
+  )
 
   return (
     <Page pageId={pageId} form={form} submitHandler={submitHandler}>
@@ -153,6 +227,7 @@ export function DetailPage<
           <DetailFormGrid>
             {updateFields
               .filter((fieldInfo) => fieldInfo.name !== 'customFields')
+              .filter((fieldInfo) => fieldInfo.name !== 'translations')
               .map((fieldInfo) => {
                 if (fieldInfo.name === 'id' && fieldInfo.type === 'ID') {
                   return null
@@ -163,38 +238,43 @@ export function DetailPage<
                     control={form.control}
                     name={fieldInfo.name as never}
                     label={fieldInfo.name}
-                    render={({ field }) => {
-                      switch (fieldInfo.type) {
-                        case 'Int':
-                        case 'Float':
-                          return (
-                            <Input
-                              type="number"
-                              value={field.value}
-                              onChange={(e) =>
-                                field.onChange(e.target.valueAsNumber)
-                              }
-                            />
-                          )
-                        case 'DateTime':
-                          return <DateTimeInput {...field} />
-                        case 'Boolean':
-                          return (
-                            <Checkbox
-                              value={field.value}
-                              onCheckedChange={field.onChange}
-                            />
-                          )
-                        case 'String':
-                        default:
-                          return <Input {...field} />
-                      }
-                    }}
+                    renderFormControl={false}
+                    render={({ field }) => (
+                      <FieldInputRenderer fieldInfo={fieldInfo} field={field} />
+                    )}
+                  />
+                )
+              })}
+            {translations?.typeInfo
+              ?.filter(
+                (fieldInfo) =>
+                  !['customFields', 'id', 'languageCode'].includes(
+                    fieldInfo.name,
+                  ),
+              )
+              .map((fieldInfo) => {
+                return (
+                  <TranslatableFormFieldWrapper
+                    key={fieldInfo.name}
+                    control={form.control}
+                    name={fieldInfo.name as never}
+                    label={fieldInfo.name}
+                    renderFormControl={false}
+                    render={({ field }) => (
+                      <FieldInputRenderer fieldInfo={fieldInfo} field={field} />
+                    )}
                   />
                 )
               })}
           </DetailFormGrid>
         </PageBlock>
+        {entityName && (
+          <CustomFieldsPageBlock
+            column="main"
+            entityType={entityName}
+            control={form.control}
+          />
+        )}
       </PageLayout>
     </Page>
   )

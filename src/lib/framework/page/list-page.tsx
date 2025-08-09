@@ -1,34 +1,47 @@
-import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
-import type { AnyRoute, AnyRouter } from '@tanstack/react-router'
-import { useNavigate } from '@tanstack/react-router'
-import type {
-  ColumnFiltersState,
-  SortingState,
-  Table,
-} from '@tanstack/react-table'
-import type { TableOptions } from '@tanstack/table-core'
-
-import type {
-  AdditionalColumns,
-  CustomFieldKeysOfItem,
-  CustomizeColumnConfig,
-  FacetedFilterConfig,
-  ListQueryFields,
-  ListQueryOptionsShape,
-  ListQueryShape,
+import {
+  type AdditionalColumns,
+  type CustomFieldKeysOfItem,
+  type CustomizeColumnConfig,
+  type FacetedFilterConfig,
+  type ListQueryFields,
+  type ListQueryOptionsShape,
+  type ListQueryShape,
   PaginatedListDataTable,
-  RowAction,
-} from '@/components/shared/paginated-list-data-table'
-import { useUserSettings } from '@/hooks/use-user-settings'
+  type PaginatedListRefresherRegisterFn,
+  type RowAction,
+} from '@/components/shared/paginated-list-data-table.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
+import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
+import {
+  type AnyRoute,
+  type AnyRouter,
+  useNavigate,
+} from '@tanstack/react-router'
+import {
+  type ColumnFiltersState,
+  type SortingState,
+  type Table,
+} from '@tanstack/react-table'
+import { type TableOptions } from '@tanstack/table-core'
 
+import type { BulkAction } from '@/framework/extension-api/types/index.js'
+import { addCustomFields } from '../document-introspection/add-custom-fields.js'
 import {
   FullWidthPageBlock,
   Page,
   PageActionBar,
   PageLayout,
   PageTitle,
-} from '../layout-engine/page-layout'
+} from '../layout-engine/page-layout.js'
 
+/**
+ * @description
+ * **Status: Developer Preview**
+ *
+ * @docsCategory components
+ * @docsPage ListPage
+ * @since 3.3.0
+ */
 export interface ListPageProps<
   T extends TypedDocumentNode<U, V>,
   U extends ListQueryShape,
@@ -65,13 +78,25 @@ export interface ListPageProps<
   rowActions?: RowAction<ListQueryFields<T>>[]
   transformData?: (data: any[]) => any[]
   setTableOptions?: (table: TableOptions<any>) => TableOptions<any>
+  bulkActions?: BulkAction[]
+  /**
+   * Register a function that allows you to assign a refresh function for
+   * this list. The function can be assigned to a ref and then called when
+   * the list needs to be refreshed.
+   */
+  registerRefresher?: PaginatedListRefresherRegisterFn
 }
 
 /**
  * @description
+ * **Status: Developer Preview**
  *
  * Auto-generates a list page with columns generated based on the provided query document fields.
  *
+ * @docsCategory components
+ * @docsPage ListPage
+ * @docsWeight 0
+ * @since 3.3.0
  */
 export function ListPage<
   T extends TypedDocumentNode<U, V>,
@@ -96,7 +121,9 @@ export function ListPage<
   rowActions,
   transformData,
   setTableOptions,
-}: ListPageProps<T, U, V, AC>) {
+  bulkActions,
+  registerRefresher,
+}: Readonly<ListPageProps<T, U, V, AC>>) {
   const route = typeof routeOrFn === 'function' ? routeOrFn() : routeOrFn
   const routeSearch = route.useSearch()
   const navigate = useNavigate<AnyRouter>({ from: route.fullPath })
@@ -163,6 +190,8 @@ export function ListPage<
     })
   }
 
+  const listQueryWithCustomFields = addCustomFields(listQuery)
+
   return (
     <Page pageId={pageId}>
       <PageTitle>{title}</PageTitle>
@@ -170,7 +199,7 @@ export function ListPage<
       <PageLayout>
         <FullWidthPageBlock blockId="list-table">
           <PaginatedListDataTable
-            listQuery={listQuery}
+            listQuery={listQueryWithCustomFields}
             deleteMutation={deleteMutation}
             transformVariables={transformVariables}
             customizeColumns={customizeColumns as any}
@@ -204,8 +233,10 @@ export function ListPage<
             }}
             facetedFilters={facetedFilters}
             rowActions={rowActions}
+            bulkActions={bulkActions}
             setTableOptions={setTableOptions}
             transformData={transformData}
+            registerRefresher={registerRefresher}
           />
         </FullWidthPageBlock>
       </PageLayout>

@@ -1,24 +1,23 @@
-import { Trans } from '@lingui/react/macro'
-import type { Column, ColumnDef } from '@tanstack/react-table'
-import { PlusCircle } from 'lucide-react'
-import { useState } from 'react'
-
-import { DataTableFilterDialog } from '@/components/data-table/data-table-filter-dialog'
-import { Button } from '@/components/ui/button'
-import { Dialog } from '@/components/ui/dialog'
+import { DataTableFilterDialog } from '@/components/data-table/data-table-filter-dialog.js'
+import { Button } from '@/components/ui/button.js'
+import { Dialog } from '@/components/ui/dialog.js'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { camelCaseToTitleCase } from '@/lib/utils'
+} from '@/components/ui/dropdown-menu.js'
+import { Trans } from '@/lib/trans.js'
+import { camelCaseToTitleCase } from '@/lib/utils.js'
+import type { Column, ColumnDef } from '@tanstack/react-table'
+import { PlusCircle } from 'lucide-react'
+import { useState } from 'react'
 
 export interface AddFilterMenuProps {
   columns: Column<any, unknown>[]
 }
 
-export function AddFilterMenu({ columns }: AddFilterMenuProps) {
+export function AddFilterMenu({ columns }: Readonly<AddFilterMenuProps>) {
   const [selectedColumn, setSelectedColumn] = useState<ColumnDef<any> | null>(
     null,
   )

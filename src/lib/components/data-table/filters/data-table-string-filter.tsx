@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react'
-
-import { Input } from '@/components/ui/input'
 import {
   Select,
-  SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui/select.js'
 
-import { HumanReadableOperator } from '../human-readable-operator'
+import { Input } from '@/components/ui/input.js'
+import { SelectContent } from '@/components/ui/select.js'
+import { useEffect, useState } from 'react'
+import { HumanReadableOperator } from '../human-readable-operator.js'
 
 export interface DataTableStringFilterProps {
   value: Record<string, any> | undefined
@@ -30,7 +29,7 @@ export const STRING_OPERATORS = [
 export function DataTableStringFilter({
   value: incomingValue,
   onChange,
-}: DataTableStringFilterProps) {
+}: Readonly<DataTableStringFilterProps>) {
   const initialOperator = incomingValue
     ? Object.keys(incomingValue)[0]
     : 'contains'

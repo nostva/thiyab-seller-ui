@@ -1,15 +1,15 @@
-import { Trans } from '@lingui/react/macro'
-import { useEffect, useState } from 'react'
+import { Trans } from '@/lib/trans.js'
 
 import {
   Select,
-  SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui/select.js'
 
-import { HumanReadableOperator } from '../human-readable-operator'
+import { SelectContent } from '@/components/ui/select.js'
+import { useEffect, useState } from 'react'
+import { HumanReadableOperator } from '../human-readable-operator.js'
 
 export interface DataTableBooleanFilterProps {
   value: Record<string, any> | undefined
@@ -21,7 +21,7 @@ export const BOOLEAN_OPERATORS = ['eq', 'isNull'] as const
 export function DataTableBooleanFilter({
   value: incomingValue,
   onChange,
-}: DataTableBooleanFilterProps) {
+}: Readonly<DataTableBooleanFilterProps>) {
   const initialOperator = incomingValue
     ? (Object.keys(incomingValue)[0] ?? 'eq')
     : 'eq'

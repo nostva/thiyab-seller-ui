@@ -3,11 +3,10 @@ import {
   PageBlock,
   PageLayout,
   PageTitle,
-} from '@/framework/layout-engine/page-layout'
-import { Trans } from '@lingui/react/macro'
+} from '@/framework/layout-engine/page-layout.js'
+import { Trans } from '@/lib/trans.js'
 import { AlertCircle } from 'lucide-react'
-
-import { Alert, AlertDescription, AlertTitle } from '../ui/alert'
+import { Alert, AlertDescription, AlertTitle } from '../ui/alert.js'
 
 export interface ErrorPageProps {
   message: string
@@ -17,7 +16,7 @@ export interface ErrorPageProps {
  * @description
  * A generic error page that displays an error message.
  */
-export function ErrorPage({ message }: ErrorPageProps) {
+export function ErrorPage({ message }: Readonly<ErrorPageProps>) {
   return (
     <Page pageId="error-page">
       <PageTitle>

@@ -1,4 +1,4 @@
-import type { GlobalRegistryContents } from './registry-types'
+import type { GlobalRegistryContents } from './registry-types.js'
 
 /**
  * There are certain global objects that are used in the configuration and extension
@@ -38,6 +38,10 @@ class GlobalRegistry {
   ) {
     const oldValue = this.get(key)
     this.registry.set(key, updater(oldValue))
+  }
+
+  public has(key: string): boolean {
+    return this.registry.has(key)
   }
 }
 

@@ -1,5 +1,5 @@
-import type { DashboardWidgetDefinition } from './types'
-import { globalRegistry } from '../registry/global-registry'
+import type { DashboardWidgetDefinition } from '@/framework/extension-api/types/index.js'
+import { globalRegistry } from '../registry/global-registry.js'
 
 globalRegistry.register(
   'dashboardWidgetRegistry',

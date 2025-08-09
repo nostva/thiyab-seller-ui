@@ -1,14 +1,12 @@
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs.js'
+import { api } from '@/graphql/api.js'
+import { useChannel } from '@/hooks/use-channel.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
 import { useQuery } from '@tanstack/react-query'
 import { useMemo, useState } from 'react'
-
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { api } from '@/graphql/api'
-import { useChannel } from '@/hooks/use-channel'
-import { useLocalFormat } from '@/hooks/use-local-format'
-
-import { DashboardBaseWidget } from '../base-widget'
-import { MetricsChart } from './chart'
-import { orderChartDataQuery } from './metrics-widget.graphql'
+import { DashboardBaseWidget } from '../base-widget.js'
+import { MetricsChart } from './chart.js'
+import { orderChartDataQuery } from './metrics-widget.graphql.js'
 
 enum DATA_TYPES {
   OrderCount = 'OrderCount',
@@ -21,7 +19,7 @@ export function MetricsWidget() {
   const { activeChannel } = useChannel()
   const [dataType, setDataType] = useState<DATA_TYPES>(DATA_TYPES.OrderTotal)
 
-  const { data, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ['dashboard-order-metrics', dataType],
     queryFn: () => {
       return api.query(orderChartDataQuery, {

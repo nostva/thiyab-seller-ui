@@ -1,8 +1,8 @@
 import type {
   DashboardActionBarItem,
   DashboardPageBlockDefinition,
-} from '../extension-api/extension-api-types'
-import { globalRegistry } from '../registry/global-registry'
+} from '../extension-api/types/layout.js'
+import { globalRegistry } from '../registry/global-registry.js'
 
 globalRegistry.register(
   'dashboardActionBarItemRegistry',

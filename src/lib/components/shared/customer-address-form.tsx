@@ -1,14 +1,12 @@
+import { api } from '@/graphql/api.js'
+import { graphql } from '@/graphql/graphql.js'
+import { Trans, useLingui } from '@/lib/trans.js'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useQuery } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-
-import { api } from '@/graphql/api'
-import { graphql } from '@/graphql/graphql'
-import { Trans, useLingui } from '@lingui/react/macro'
-
-import { Button } from '../ui/button'
-import { Checkbox } from '../ui/checkbox'
+import { Button } from '../ui/button.js'
+import { Checkbox } from '../ui/checkbox.js'
 import {
   Form,
   FormControl,
@@ -17,16 +15,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form'
-import { Input } from '../ui/input'
+} from '../ui/form.js'
+import { Input } from '../ui/input.js'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
+} from '../ui/select.js'
 
+// Query document to fetch available countries
 const getAvailableCountriesDocument = graphql(`
   query GetAvailableCountries {
     countries(options: { filter: { enabled: { eq: true } } }) {
@@ -73,13 +72,15 @@ export function CustomerAddressForm<T>({
 }: CustomerAddressFormProps<T>) {
   const { i18n } = useLingui()
 
+  // Fetch available countries
   const { data: countriesData, isLoading: isLoadingCountries } = useQuery({
     queryKey: ['availableCountries'],
     queryFn: () => api.query(getAvailableCountriesDocument),
     staleTime: 1000 * 60 * 60 * 24, // 24 hours
   })
 
-  const form = useForm({
+  // Set up form with react-hook-form and zod
+  const form = useForm<AddressFormValues>({
     resolver: zodResolver(addressFormSchema),
     values: address ? setValuesForUpdate?.(address) : undefined,
   })

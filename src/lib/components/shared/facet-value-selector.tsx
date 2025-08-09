@@ -1,10 +1,4 @@
-import { Trans } from '@lingui/react/macro'
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
-import { useDebounce } from '@uidotdev/usehooks'
-import { ChevronRight, Loader2, Plus } from 'lucide-react'
-import React, { useState } from 'react'
-
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button.js'
 import {
   Command,
   CommandEmpty,
@@ -12,14 +6,19 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/components/ui/command'
+} from '@/components/ui/command.js'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
-import { api } from '@/graphql/api'
-import { graphql } from '@/graphql/graphql'
+} from '@/components/ui/popover.js'
+import { api } from '@/graphql/api.js'
+import { graphql } from '@/graphql/graphql.js'
+import { Trans } from '@/lib/trans.js'
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
+import { useDebounce } from '@uidotdev/usehooks'
+import { ChevronRight, Loader2, Plus } from 'lucide-react'
+import React, { useState } from 'react'
 
 export interface FacetValue {
   id: string

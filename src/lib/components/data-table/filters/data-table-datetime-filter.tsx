@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react'
-
-import { DateTimeInput } from '@/components/data-input/datetime-input'
+import { DateTimeInput } from '@/components/data-input/datetime-input.js'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-
-import { HumanReadableOperator } from '../human-readable-operator'
+} from '@/components/ui/select.js'
+import { useEffect, useState } from 'react'
+import { HumanReadableOperator } from '../human-readable-operator.js'
 
 export interface DataTableDateTimeFilterProps {
   value: Record<string, any> | undefined
@@ -27,7 +25,7 @@ export const DATETIME_OPERATORS = [
 export function DataTableDateTimeFilter({
   value: incomingValue,
   onChange,
-}: DataTableDateTimeFilterProps) {
+}: Readonly<DataTableDateTimeFilterProps>) {
   const initialOperator = incomingValue ? Object.keys(incomingValue)[0] : 'eq'
   const initialValue = incomingValue ? Object.values(incomingValue)[0] : ''
   const [operator, setOperator] = useState<string>(initialOperator ?? 'eq')

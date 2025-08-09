@@ -1,6 +1,3 @@
-import { Trans } from '@lingui/react/macro'
-import { useQuery } from '@tanstack/react-query'
-
 import {
   Select,
   SelectContent,
@@ -8,11 +5,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { api } from '@/graphql/api'
-import { graphql } from '@/graphql/graphql'
-
-import { Skeleton } from '../ui/skeleton'
+} from '@/components/ui/select.js'
+import { api } from '@/graphql/api.js'
+import { graphql } from '@/graphql/graphql.js'
+import { Trans } from '@/lib/trans.js'
+import { useQuery } from '@tanstack/react-query'
+import { Skeleton } from '../ui/skeleton.js'
 
 const taxCategoriesDocument = graphql(`
   query TaxCategories($options: TaxCategoryListOptions) {
@@ -34,7 +32,7 @@ export interface TaxCategorySelectorProps {
 export function TaxCategorySelector({
   value,
   onChange,
-}: TaxCategorySelectorProps) {
+}: Readonly<TaxCategorySelectorProps>) {
   const { data, isLoading, isPending, status } = useQuery({
     queryKey: ['taxCategories'],
     staleTime: 1000 * 60 * 5,

@@ -1,18 +1,16 @@
+import { useAlerts } from '@/framework/alert/alert-extensions.js'
+import { AlertItem } from '@/framework/alert/alert-item.js'
+import { AlertsIndicator } from '@/framework/alert/alerts-indicator.js'
 import { BellIcon } from 'lucide-react'
-
-import { Button } from '@/components/ui/button'
+import { Button } from '../ui/button.js'
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
-import { useAlerts } from '@/framework/alert/alert-extensions'
-import { AlertItem } from '@/framework/alert/alert-item'
-import { AlertsIndicator } from '@/framework/alert/alerts-indicator'
-
-import { ScrollArea } from '../ui/scroll-area'
+} from '../ui/dialog.js'
+import { ScrollArea } from '../ui/scroll-area.js'
 
 export function Alerts() {
   const { alerts } = useAlerts()

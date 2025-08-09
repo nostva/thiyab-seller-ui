@@ -1,10 +1,9 @@
-import type { ComponentProps } from 'react'
+import { Button } from '@/components/ui/button.js'
+import { cn } from '@/lib/utils.js'
 import { useQuery } from '@tanstack/react-query'
+import type { ComponentProps } from 'react'
 
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-
-import type { DashboardAlertDefinition } from './types'
+import type { DashboardAlertDefinition } from '../extension-api/types/alerts.js'
 
 interface AlertItemProps extends ComponentProps<'div'> {
   alert: DashboardAlertDefinition

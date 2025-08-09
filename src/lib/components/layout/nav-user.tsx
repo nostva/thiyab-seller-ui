@@ -1,4 +1,4 @@
-import { useAuth } from '@/hooks/use-auth'
+import { useAuth } from '@/hooks/use-auth.js'
 import { Link, useNavigate, useRouter } from '@tanstack/react-router'
 import {
   ChevronsUpDown,
@@ -9,7 +9,7 @@ import {
   Sun,
 } from 'lucide-react'
 
-// import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+// import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.js';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,25 +24,26 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu.js'
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from '@/components/ui/sidebar'
-import { useUserSettings } from '@/hooks/use-user-settings'
-import type { Theme } from '@/providers/theme-provider'
+} from '@/components/ui/sidebar.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
+import { Trans } from '@/lib/trans.js'
+import type { Theme } from '@/providers/theme-provider.js'
 import { useMemo } from 'react'
-import { Dialog, DialogTrigger } from '../ui/dialog'
-import { LanguageDialog } from './language-dialog'
+import { Dialog, DialogTrigger } from '../ui/dialog.js'
+import { LanguageDialog } from './language-dialog.js'
 
 export function NavUser() {
   const { isMobile } = useSidebar()
   const router = useRouter()
   const navigate = useNavigate()
   const { user, ...auth } = useAuth()
-  const { settings, setTheme } = useUserSettings()
+  const { settings, setTheme, setDevMode } = useUserSettings()
 
   const handleLogout = () => {
     auth.logout().then(() => {
@@ -59,6 +60,8 @@ export function NavUser() {
   if (!user) {
     return <></>
   }
+
+  const isDevMode = (import.meta as any).env?.MODE === 'development'
 
   return (
     <SidebarMenu>
@@ -154,7 +157,26 @@ export function NavUser() {
                   </DropdownMenuPortal>
                 </DropdownMenuSub>
               </DropdownMenuGroup>
-
+              {isDevMode && (
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>Dev Mode</DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent>
+                      <DropdownMenuRadioGroup
+                        value={settings.devMode.toString()}
+                        onValueChange={(value) => setDevMode(value === 'true')}
+                      >
+                        <DropdownMenuRadioItem value="true">
+                          <Trans>Enabled</Trans>
+                        </DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="false">
+                          <Trans>Disabled</Trans>
+                        </DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+              )}
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout}>
                 <LogOut />

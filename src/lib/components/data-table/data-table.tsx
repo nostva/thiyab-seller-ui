@@ -1,27 +1,10 @@
 'use client'
 
-import type {
-  ColumnDef,
-  ColumnFilter,
-  ColumnFiltersState,
-  PaginationState,
-  SortingState,
-  Table as TableType,
-  VisibilityState,
-} from '@tanstack/react-table'
-import {
-  flexRender,
-  getCoreRowModel,
-  getPaginationRowModel,
-  useReactTable,
-} from '@tanstack/react-table'
-import type { TableOptions } from '@tanstack/table-core'
-import React, { Suspense, useEffect } from 'react'
-
-import { DataTablePagination } from '@/components/data-table/data-table-pagination'
-import { DataTableViewOptions } from '@/components/data-table/data-table-view-options'
-import { RefreshButton } from '@/components/data-table/refresh-button'
-import { Input } from '@/components/ui/input'
+import { DataTablePagination } from '@/components/data-table/data-table-pagination.js'
+import { DataTableViewOptions } from '@/components/data-table/data-table-view-options.js'
+import { RefreshButton } from '@/components/data-table/refresh-button.js'
+import { Input } from '@/components/ui/input.js'
+import { Skeleton } from '@/components/ui/skeleton.js'
 import {
   Table,
   TableBody,
@@ -29,15 +12,31 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table'
-import { useChannel } from '@/hooks/use-channel'
-
-import { AddFilterMenu } from './add-filter-menu'
+} from '@/components/ui/table.js'
+import type { BulkAction } from '@/framework/extension-api/types/index.js'
+import { useChannel } from '@/hooks/use-channel.js'
+import {
+  type ColumnDef,
+  type ColumnFilter,
+  type ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  type PaginationState,
+  type SortingState,
+  type Table as TableType,
+  useReactTable,
+  type VisibilityState,
+} from '@tanstack/react-table'
+import type { RowSelectionState, TableOptions } from '@tanstack/table-core'
+import React, { Suspense, useEffect } from 'react'
+import { AddFilterMenu } from './add-filter-menu.js'
+import { DataTableBulkActions } from './data-table-bulk-actions.js'
 import {
   DataTableFacetedFilter,
   type DataTableFacetedFilterOption,
-} from './data-table-faceted-filter'
-import { DataTableFilterBadge } from './data-table-filter-badge'
+} from './data-table-faceted-filter.js'
+import { DataTableFilterBadge } from './data-table-filter-badge.js'
 
 export interface FacetedFilter {
   title: string
@@ -47,9 +46,11 @@ export interface FacetedFilter {
 }
 
 interface DataTableProps<TData> {
+  children?: React.ReactNode
   columns: ColumnDef<TData, any>[]
   data: TData[]
   totalItems: number
+  isLoading?: boolean
   page?: number
   itemsPerPage?: number
   sorting?: SortingState
@@ -72,6 +73,7 @@ interface DataTableProps<TData> {
   defaultColumnVisibility?: VisibilityState
   facetedFilters?: { [key: string]: FacetedFilter | undefined }
   disableViewOptions?: boolean
+  bulkActions?: BulkAction[]
   /**
    * This property allows full control over _all_ features of TanStack Table
    * when needed.
@@ -81,9 +83,11 @@ interface DataTableProps<TData> {
 }
 
 export function DataTable<TData>({
+  children,
   columns,
   data,
   totalItems,
+  isLoading,
   page,
   itemsPerPage,
   sorting: sortingInitialState,
@@ -96,9 +100,10 @@ export function DataTable<TData>({
   defaultColumnVisibility,
   facetedFilters,
   disableViewOptions,
+  bulkActions,
   setTableOptions,
   onRefresh,
-}: DataTableProps<TData>) {
+}: Readonly<DataTableProps<TData>>) {
   const [sorting, setSorting] = React.useState<SortingState>(
     sortingInitialState || [],
   )
@@ -112,6 +117,7 @@ export function DataTable<TData>({
   })
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>(defaultColumnVisibility ?? {})
+  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({})
 
   useEffect(() => {
     // If the defaultColumnVisibility changes externally (e.g. the user reset the table settings),
@@ -129,6 +135,7 @@ export function DataTable<TData>({
   let tableOptions: TableOptions<TData> = {
     data,
     columns,
+    getRowId: (row) => (row as { id: string }).id,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     manualPagination: true,
@@ -139,11 +146,13 @@ export function DataTable<TData>({
     onSortingChange: setSorting,
     onColumnVisibilityChange: setColumnVisibility,
     onColumnFiltersChange: setColumnFilters,
+    onRowSelectionChange: setRowSelection,
     state: {
       pagination,
       sorting,
       columnVisibility,
       columnFilters,
+      rowSelection,
     },
   }
 
@@ -169,6 +178,8 @@ export function DataTable<TData>({
     onColumnVisibilityChange?.(table, columnVisibility)
   }, [columnVisibility])
 
+  const visibleColumnCount =
+    Object.values(columnVisibility).filter(Boolean).length
   return (
     <>
       <div className="flex justify-between items-start">
@@ -194,7 +205,9 @@ export function DataTable<TData>({
                 />
               ))}
             </Suspense>
-            <AddFilterMenu columns={table.getAllColumns()} />
+            {onFilterChange && (
+              <AddFilterMenu columns={table.getAllColumns()} />
+            )}
           </div>
           <div className="flex gap-1">
             {columnFilters
@@ -223,10 +236,16 @@ export function DataTable<TData>({
         </div>
         <div className="flex items-center justify-start gap-2">
           {!disableViewOptions && <DataTableViewOptions table={table} />}
-          {onRefresh && <RefreshButton onRefresh={onRefresh} />}
+          {onRefresh && (
+            <RefreshButton
+              onRefresh={onRefresh}
+              isLoading={isLoading ?? false}
+            />
+          )}
         </div>
       </div>
-      <div className="rounded-md border my-2">
+
+      <div className="rounded-md border my-2 relative">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -247,14 +266,33 @@ export function DataTable<TData>({
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
+            {isLoading && !data?.length ? (
+              Array.from({ length: pagination.pageSize }).map((_, index) => (
+                <TableRow
+                  key={`skeleton-${index}`}
+                  className="animate-in fade-in duration-100"
+                >
+                  {Array.from({ length: visibleColumnCount }).map(
+                    (_, cellIndex) => (
+                      <TableCell
+                        key={`skeleton-cell-${index}-${cellIndex}`}
+                        className="h-12"
+                      >
+                        <Skeleton className="h-4 my-2 w-full" />
+                      </TableCell>
+                    ),
+                  )}
+                </TableRow>
+              ))
+            ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
+                  className="animate-in fade-in duration-100"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="h-12">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),
@@ -264,7 +302,7 @@ export function DataTable<TData>({
                 </TableRow>
               ))
             ) : (
-              <TableRow>
+              <TableRow className="animate-in fade-in duration-100">
                 <TableCell
                   colSpan={columns.length}
                   className="h-24 text-center"
@@ -273,10 +311,14 @@ export function DataTable<TData>({
                 </TableCell>
               </TableRow>
             )}
+            {children}
           </TableBody>
         </Table>
+        <DataTableBulkActions bulkActions={bulkActions ?? []} table={table} />
       </div>
-      <DataTablePagination table={table} />
+      {onPageChange && totalItems != null && (
+        <DataTablePagination table={table} />
+      )}
     </>
   )
 }

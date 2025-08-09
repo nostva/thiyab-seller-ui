@@ -1,6 +1,5 @@
 import { useQueries } from '@tanstack/react-query'
-
-import { useAlerts } from './alert-extensions'
+import { useAlerts } from './alert-extensions.js'
 
 export function AlertsIndicator() {
   const { alerts } = useAlerts()

@@ -1,15 +1,12 @@
+import { VendureImage } from '@/components/shared/vendure-image.js'
+import { Button } from '@/components/ui/button.js'
+import { Card, CardContent } from '@/components/ui/card.js'
+import type { AssetFragment } from '@/graphql/fragments.js'
+import { cn } from '@/lib/utils.js'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
-
-import { VendureImage } from '@/components/shared/vendure-image'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { type AssetFragment } from '@/graphql/fragments'
-import { cn } from '@/lib/utils'
-
-import { AssetPreviewSelector } from './asset-preview-selector'
-import { AssetProperties } from './asset-properties'
+import { AssetPreviewSelector } from './asset-preview-selector.js'
+import { AssetProperties } from './asset-properties.js'
 
 export type PreviewPreset = 'tiny' | 'thumb' | 'small' | 'medium' | 'large' | ''
 
@@ -25,7 +22,7 @@ export function AssetPreview({
   asset,
   assets,
   customFields = [],
-}: AssetPreviewProps) {
+}: Readonly<AssetPreviewProps>) {
   const [size, setSize] = useState<PreviewPreset>('medium')
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
@@ -35,12 +32,6 @@ export function AssetPreview({
   const imageRef = useRef<HTMLImageElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const form = useForm({
-    defaultValues: {
-      name: asset.name,
-      tags: asset.tags?.map((t) => t.value) || [],
-    },
-  })
   const activeAsset = assets?.[assetIndex] ?? asset
 
   useEffect(() => {

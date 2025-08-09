@@ -1,17 +1,16 @@
-import { useQuery } from '@tanstack/react-query'
-import { Plus } from 'lucide-react'
-import { useState } from 'react'
-
-import { Button } from '@/components/ui/button'
-import { Command, CommandItem, CommandList } from '@/components/ui/command'
+import { Button } from '@/components/ui/button.js'
+import { Command, CommandItem, CommandList } from '@/components/ui/command.js'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
-import { api } from '@/graphql/api'
-import { graphql } from '@/graphql/graphql'
-import { Trans } from '@lingui/react/macro'
+} from '@/components/ui/popover.js'
+import { api } from '@/graphql/api.js'
+import { graphql } from '@/graphql/graphql.js'
+import { Trans } from '@/lib/trans.js'
+import { useQuery } from '@tanstack/react-query'
+import { Plus } from 'lucide-react'
+import { useState } from 'react'
 
 const customerGroupsDocument = graphql(`
   query GetCustomerGroups($options: CustomerGroupListOptions) {

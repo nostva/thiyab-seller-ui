@@ -1,14 +1,14 @@
-import { ExternalLink } from 'lucide-react'
+import { formatFileSize } from '@/lib/utils.js'
 
-import { Label } from '@/components/ui/label'
-import { type AssetFragment } from '@/graphql/fragments'
-import { formatFileSize } from '@/lib/utils'
+import { Label } from '@/components/ui/label.js'
+import type { AssetFragment } from '@/graphql/fragments.js'
+import { ExternalLink } from 'lucide-react'
 
 export interface AssetPropertiesProps {
   asset: AssetFragment
 }
 
-export function AssetProperties({ asset }: AssetPropertiesProps) {
+export function AssetProperties({ asset }: Readonly<AssetPropertiesProps>) {
   return (
     <div className="space-y-4">
       <div>

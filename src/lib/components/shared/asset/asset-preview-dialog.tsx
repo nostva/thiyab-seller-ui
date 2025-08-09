@@ -4,9 +4,8 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
-
-import { type AssetWithTags, AssetPreview } from './asset-preview'
+} from '@/components/ui/dialog.js'
+import { AssetPreview, type AssetWithTags } from './asset-preview.js'
 
 interface AssetPreviewDialogProps {
   open: boolean

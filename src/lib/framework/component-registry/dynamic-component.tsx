@@ -1,20 +1,22 @@
 import React from 'react'
-import { COMPONENT_REGISTRY, useComponentRegistry } from './component-registry'
+import {
+  useComponentRegistry,
+  type DataInputComponentProps,
+} from './component-registry.js'
 
-export type DisplayComponentProps<
-  T extends keyof (typeof COMPONENT_REGISTRY)['dataDisplay'] | string,
-> = {
-  id: T
+export type DisplayComponentProps = {
+  id: string
   value: any
   // rest of the props are passed to the component
   [key: string]: any
 }
 
-export type InputComponentProps<
-  T extends keyof (typeof COMPONENT_REGISTRY)['dataInput'] | string,
-> = {
-  id: T
+export type InputComponentProps = {
+  id: string
   value: any
+  onChange?: (value: any) => void
+  onBlur?: () => void
+  name?: string
   // rest of the props are passed to the component
   [key: string]: any
 }
@@ -30,26 +32,37 @@ export type InputComponentProps<
  *
  * @returns
  */
-export function DisplayComponent<
-  T extends keyof (typeof COMPONENT_REGISTRY)['dataDisplay'] | string,
->(props: DisplayComponentProps<T>): React.ReactNode {
+export function DisplayComponent(
+  props: Readonly<DisplayComponentProps>,
+): React.ReactNode {
   const { getDisplayComponent } = useComponentRegistry()
-  const Component = getDisplayComponent(props.id)
+  const Component = getDisplayComponent(String(props.id))
   if (!Component) {
-    throw new Error(`Component with id ${props.id} not found`)
+    throw new Error(`Component with id ${String(props.id)} not found`)
   }
   const { value, ...rest } = props
   return <Component value={value} {...rest} />
 }
 
-export function InputComponent<
-  T extends keyof (typeof COMPONENT_REGISTRY)['dataInput'] | string,
->(props: InputComponentProps<T>): React.ReactNode {
+export function InputComponent(
+  props: Readonly<InputComponentProps>,
+): React.ReactNode {
   const { getInputComponent } = useComponentRegistry()
-  const Component = getInputComponent(props.id)
+  const Component = getInputComponent(String(props.id))
   if (!Component) {
-    throw new Error(`Component with id ${props.id} not found`)
+    throw new Error(`Component with id ${String(props.id)} not found`)
   }
-  const { value, onChange, ...rest } = props
-  return <Component value={value} onChange={onChange} {...rest} />
+  const { value, onChange, onBlur, name, ...rest } = props
+
+  // Create props that match DataInputComponentProps interface
+  const componentProps: DataInputComponentProps = {
+    value,
+    onChange: onChange || (() => {}),
+    onBlur: onBlur || (() => {}),
+    name: name || '',
+    ref: () => {},
+    ...rest,
+  }
+
+  return <Component {...componentProps} />
 }

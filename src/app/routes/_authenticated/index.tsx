@@ -1,13 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { Responsive as ResponsiveGridLayout } from 'react-grid-layout'
-
 import { Button } from '@/components/ui/button.js'
-import type { DashboardWidgetInstance } from '@/framework/dashboard-widget/types'
 import {
   getDashboardWidget,
   getDashboardWidgetRegistry,
 } from '@/framework/dashboard-widget/widget-extensions.js'
+import type { DashboardWidgetInstance } from '@/framework/extension-api/types/widgets.js'
 import {
   FullWidthPageBlock,
   Page,
@@ -16,6 +12,9 @@ import {
   PageLayout,
   PageTitle,
 } from '@/framework/layout-engine/page-layout.js'
+import { createFileRoute } from '@tanstack/react-router'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Responsive as ResponsiveGridLayout } from 'react-grid-layout'
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
@@ -171,8 +170,8 @@ function DashboardPage() {
   }, [layoutWidth, editMode, widgets])
 
   return (
-    <Page pageId="dashboard">
-      <PageTitle>Dashboard</PageTitle>
+    <Page pageId="insights">
+      <PageTitle>Insights</PageTitle>
       <PageActionBar>
         <PageActionBarRight>
           <Button
@@ -190,7 +189,7 @@ function DashboardPage() {
       </PageActionBar>
       <PageLayout>
         <FullWidthPageBlock blockId="widgets">
-          <div ref={layoutRef} className="h-full w-full min-h-[600px]">
+          <div ref={layoutRef} className="h-full w-full">
             {memoizedLayoutGrid}
           </div>
         </FullWidthPageBlock>

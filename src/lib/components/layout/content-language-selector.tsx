@@ -4,11 +4,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { useLocalFormat } from '@/hooks/use-local-format'
-import { useServerConfig } from '@/hooks/use-server-config'
-import { useUserSettings } from '@/hooks/use-user-settings'
-import { cn } from '@/lib/utils'
+} from '@/components/ui/select.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
+import { useServerConfig } from '@/hooks/use-server-config.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
+import { cn } from '@/lib/utils.js'
 
 interface ContentLanguageSelectorProps {
   value?: string
@@ -24,7 +24,7 @@ export function ContentLanguageSelector({
   const serverConfig = useServerConfig()
   const { formatLanguageName } = useLocalFormat()
   const {
-    settings: { contentLanguage, displayLanguage },
+    settings: { contentLanguage },
     setContentLanguage,
   } = useUserSettings()
 

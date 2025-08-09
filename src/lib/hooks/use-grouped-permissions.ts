@@ -1,6 +1,7 @@
-import { useServerConfig } from '@/hooks/use-server-config'
-import type { ServerConfig } from '@/providers/server-config'
+import type { ServerConfig } from '@/providers/server-config.js'
 import { useMemo } from 'react'
+
+import { useServerConfig } from './use-server-config.js'
 
 export function useGroupedPermissions() {
   const serverConfig = useServerConfig()

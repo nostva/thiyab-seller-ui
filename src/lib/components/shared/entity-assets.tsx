@@ -1,7 +1,15 @@
+import { Button } from '@/components/ui/button.js'
 import {
-  type DragEndEvent,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu.js'
+import type { AssetFragment } from '@/graphql/fragments.js'
+import {
   closestCenter,
   DndContext,
+  type DragEndEvent,
   KeyboardSensor,
   PointerSensor,
   useSensor,
@@ -17,19 +25,9 @@ import {
 import { CSS } from '@dnd-kit/utilities'
 import { EllipsisIcon, ImageIcon, PaperclipIcon } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
-
-import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { type AssetFragment } from '@/graphql/fragments'
-
-import { AssetPickerDialog } from './asset/asset-picker-dialog'
-import { AssetPreviewDialog } from './asset/asset-preview-dialog'
-import { VendureImage } from './vendure-image'
+import { AssetPickerDialog } from './asset/asset-picker-dialog.js'
+import { AssetPreviewDialog } from './asset/asset-preview-dialog.js'
+import { VendureImage } from './vendure-image.js'
 
 type Asset = AssetFragment
 

@@ -1,25 +1,27 @@
 'use client'
 
 import { format } from 'date-fns'
-import { CalendarClock } from 'lucide-react'
 import * as React from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
+import { Button } from '@/components/ui/button.js'
+import { Calendar } from '@/components/ui/calendar.js'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import { cn } from '@/lib/utils'
+} from '@/components/ui/popover.js'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area.js'
+import { cn } from '@/lib/utils.js'
+import { CalendarClock } from 'lucide-react'
 
 export interface DateTimeInputProps {
   value: Date | string | undefined
   onChange: (value: Date) => void
+  disabled?: boolean
 }
 
 export function DateTimeInput(props: DateTimeInputProps) {
+  const { disabled = false } = props
   const date =
     props.value && props.value instanceof Date
       ? props.value.toISOString()
@@ -54,12 +56,13 @@ export function DateTimeInput(props: DateTimeInputProps) {
   }
 
   return (
-    <Popover open={isOpen} onOpenChange={setIsOpen}>
+    <Popover open={isOpen} onOpenChange={disabled ? undefined : setIsOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
+          disabled={disabled}
           className={cn(
-            'w-full justify-start text-left font-normal',
+            'w-full justify-start text-left font-normal shadow-xs',
             !date && 'text-muted-foreground',
           )}
         >

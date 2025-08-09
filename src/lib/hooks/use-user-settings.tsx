@@ -1,5 +1,7 @@
+import { UserSettingsContext } from '@/providers/user-settings.js'
 import { useContext } from 'react'
-import { UserSettingsContext } from '../providers/user-settings'
+
+// Hook to use the user settings
 
 export const useUserSettings = () => {
   const context = useContext(UserSettingsContext)

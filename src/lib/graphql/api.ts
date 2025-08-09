@@ -15,10 +15,29 @@ const awesomeClient = new AwesomeGraphQLClient({
     const headers = new Headers(options.headers)
 
     if (channelToken) {
-      headers.set('vendure-token', channelToken)
+      headers.set('vendure-selected-channel-token', channelToken)
     }
 
-    return fetch(url, {
+    // Get the content language from user settings and add as query parameter
+    let finalUrl = url
+    try {
+      const userSettings = localStorage.getItem('vendure-user-settings')
+      if (userSettings) {
+        const settings = JSON.parse(userSettings)
+        const contentLanguage = settings.contentLanguage
+
+        if (contentLanguage) {
+          const urlObj = new URL(finalUrl)
+          urlObj.searchParams.set('languageCode', contentLanguage)
+          finalUrl = urlObj.toString()
+        }
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.warn('Failed to read content language from user settings:', error)
+    }
+
+    return fetch(finalUrl, {
       ...options,
       headers,
       credentials: 'include',

@@ -1,10 +1,11 @@
+import { useLocalFormat } from '@/hooks/use-local-format.js'
 import { CircleX, Filter } from 'lucide-react'
-
-import { useLocalFormat } from '@/hooks/use-local-format'
-import { Badge } from '../ui/badge'
-import type { ColumnDataType } from './data-table-types'
-import type { Operator } from './human-readable-operator'
-import { HumanReadableOperator } from './human-readable-operator'
+import { Badge } from '../ui/badge.js'
+import {
+  HumanReadableOperator,
+  type Operator,
+} from './human-readable-operator.js'
+import type { ColumnDataType } from './types.js'
 
 export function DataTableFilterBadge({
   filter,

@@ -1,20 +1,15 @@
-import { useMemo, useState, useEffect } from 'react'
-
-import { useUserSettings } from '@/hooks/use-user-settings'
-import { useLocalFormat } from '@/hooks/use-local-format'
-
-import { AffixedInput } from './affixed-input'
+import type { DataInputComponentProps } from '@/framework/component-registry/component-registry.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
+import { useEffect, useMemo, useState } from 'react'
+import { AffixedInput } from './affixed-input.js'
 
 // Original component
 function MoneyInputInternal({
   value,
   currency,
   onChange,
-}: {
-  value: number
-  currency: string
-  onChange: (value: number) => void
-}) {
+}: DataInputComponentProps) {
   const {
     settings: { displayLanguage, displayLocale },
   } = useUserSettings()
@@ -61,6 +56,7 @@ function MoneyInputInternal({
   return (
     <AffixedInput
       type="text"
+      className="bg-background"
       value={displayValue}
       onChange={(e) => {
         const inputValue = e.target.value
@@ -117,6 +113,17 @@ export function MoneyInput(props: {
   const { value, onChange, ...rest } = props
   const currency = rest.currency || 'USD' // Default currency if none provided
   return (
-    <MoneyInputInternal value={value} currency={currency} onChange={onChange} />
+    <MoneyInputInternal
+      value={value}
+      currency={currency}
+      onChange={onChange}
+      onBlur={function (): void {
+        throw new Error('Function not implemented.')
+      }}
+      name={''}
+      ref={function (instance: any): void {
+        throw new Error('Function not implemented.')
+      }}
+    />
   )
 }

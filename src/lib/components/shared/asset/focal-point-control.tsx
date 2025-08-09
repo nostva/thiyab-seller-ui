@@ -1,6 +1,5 @@
+import { cn } from '@/lib/utils.js'
 import { useEffect, useState } from 'react'
-
-import { cn } from '@/lib/utils'
 
 export interface Point {
   x: number
@@ -19,7 +18,7 @@ export function FocalPointControl({
   height,
   point,
   onChange,
-}: FocalPointControlProps) {
+}: Readonly<FocalPointControlProps>) {
   const [dragging, setDragging] = useState(false)
 
   useEffect(() => {

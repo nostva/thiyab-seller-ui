@@ -1,21 +1,14 @@
-import { Trans } from '@lingui/react/macro'
-import {
-  type PropsWithChildren,
-  useRef,
-  useEffect,
-  useState,
-  createContext,
-  useContext,
-} from 'react'
-
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { cn } from '@/lib/utils'
+} from '@/components/ui/card.js'
+import type { DashboardBaseWidgetProps } from '@/framework/extension-api/types/index.js'
+import { Trans } from '@/lib/trans.js'
+import { cn } from '@/lib/utils.js'
+import { createContext, useContext, useEffect, useRef, useState } from 'react'
 
 type WidgetDimensions = {
   width: number
@@ -36,14 +29,6 @@ export const useWidgetDimensions = () => {
   }
   return context
 }
-
-export type DashboardBaseWidgetProps = PropsWithChildren<{
-  id: string
-  title?: string
-  description?: string
-  config?: Record<string, unknown>
-  actions?: React.ReactNode
-}>
 
 export function DashboardBaseWidget({
   id,
@@ -72,19 +57,13 @@ export function DashboardBaseWidget({
 
         const headerHeight = headerRef.current?.offsetHeight ?? 0
 
-        // Account for transform scale (0.9) used in the dashboard layout
-        const transformScale = 0.9
-        const availableWidth =
-          wrapperRef.current.offsetWidth - paddingLeft - paddingRight
-        const availableHeight =
-          wrapperRef.current.offsetHeight -
-          paddingTop -
-          paddingBottom -
-          headerHeight
-
         setDimensions({
-          width: Math.max(availableWidth * transformScale, 200),
-          height: Math.max(availableHeight * transformScale, 150),
+          width: wrapperRef.current.offsetWidth - paddingLeft - paddingRight,
+          height:
+            wrapperRef.current.offsetHeight -
+            paddingTop -
+            paddingBottom -
+            headerHeight,
         })
       }
     }
@@ -102,10 +81,7 @@ export function DashboardBaseWidget({
     <Card
       ref={wrapperRef}
       key={`dashboard-widget-${id}`}
-      className={cn(
-        'h-full w-full flex flex-col rounded-md overflow-hidden',
-        !title && 'pt-6',
-      )}
+      className={cn('h-full w-full flex flex-col rounded-md', !title && 'pt-6')}
     >
       {title && (
         <CardHeader
@@ -124,7 +100,7 @@ export function DashboardBaseWidget({
           {actions && <div className="flex items-center gap-2">{actions}</div>}
         </CardHeader>
       )}
-      <CardContent ref={contentRef} className="grow overflow-hidden">
+      <CardContent ref={contentRef} className="grow">
         <WidgetContentContext.Provider value={dimensions}>
           {children}
         </WidgetContentContext.Provider>

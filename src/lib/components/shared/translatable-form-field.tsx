@@ -1,20 +1,22 @@
+import { OverriddenFormComponent } from '@/framework/form-engine/overridden-form-component.js'
+import { LocationWrapper } from '@/framework/layout-engine/location-wrapper.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
+import { Trans } from '@/lib/trans.js'
 import {
   Controller,
   type ControllerProps,
   type FieldPath,
   type FieldValues,
 } from 'react-hook-form'
-
-import { useUserSettings } from '@/hooks/use-user-settings'
-
 import {
   FormControl,
   FormDescription,
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form'
-import { FormFieldWrapper } from './form-field-wrapper'
+} from '../ui/form.js'
+import { FormFieldWrapper } from './form-field-wrapper.js'
 
 export type TranslatableEntity = FieldValues & {
   translations?: Array<{ languageCode: string }> | null
@@ -23,6 +25,7 @@ export type TranslatableEntity = FieldValues & {
 export type TranslatableFormFieldProps<
   TFieldValues extends TranslatableEntity | TranslatableEntity[],
 > = Omit<ControllerProps<TFieldValues>, 'name'> & {
+  label?: React.ReactNode
   name: TFieldValues extends TranslatableEntity
     ? keyof Omit<
         NonNullable<TFieldValues['translations']>[number],
@@ -42,18 +45,30 @@ export const TranslatableFormField = <
     | TranslatableEntity[] = TranslatableEntity,
 >({
   name,
+  label,
   ...props
 }: TranslatableFormFieldProps<TFieldValues>) => {
+  const { formatLanguageName } = useLocalFormat()
   const { contentLanguage } = useUserSettings().settings
   const formValues = props.control?._formValues
   const translations = Array.isArray(formValues)
     ? formValues?.[0].translations
     : formValues?.translations
-  const index = translations?.findIndex(
+  const existingIndex = translations?.findIndex(
     (translation: any) => translation?.languageCode === contentLanguage,
   )
+  const index = existingIndex === -1 ? translations?.length : existingIndex
   if (index === undefined || index === -1) {
-    return null
+    return (
+      <FormItem>
+        {label && <FormLabel>{label}</FormLabel>}
+        <div className="text-sm text-muted-foreground">
+          <Trans>
+            No translation found for {formatLanguageName(contentLanguage)}
+          </Trans>
+        </div>
+      </FormItem>
+    )
   }
   const translationName =
     `translations.${index}.${String(name)}` as FieldPath<TFieldValues>
@@ -74,20 +89,40 @@ export const TranslatableFormFieldWrapper = <
   label,
   description,
   render,
+  renderFormControl,
   ...props
 }: TranslatableFormFieldWrapperProps<TFieldValues>) => {
   return (
-    <TranslatableFormField
-      control={props.control}
-      name={name}
-      render={(renderArgs) => (
-        <FormItem>
-          {label && <FormLabel>{label}</FormLabel>}
-          <FormControl>{render(renderArgs)}</FormControl>
-          {description && <FormDescription>{description}</FormDescription>}
-          <FormMessage />
-        </FormItem>
-      )}
-    />
+    <LocationWrapper identifier={name as string}>
+      <TranslatableFormField
+        label={label}
+        control={props.control}
+        name={name}
+        render={(renderArgs) => (
+          <FormItem>
+            {label && <FormLabel>{label}</FormLabel>}
+            {renderFormControl ? (
+              <FormControl>
+                <OverriddenFormComponent
+                  field={renderArgs.field}
+                  fieldName={name as string}
+                >
+                  {render(renderArgs)}
+                </OverriddenFormComponent>
+              </FormControl>
+            ) : (
+              <OverriddenFormComponent
+                field={renderArgs.field}
+                fieldName={name as string}
+              >
+                {render(renderArgs)}
+              </OverriddenFormComponent>
+            )}
+            {description && <FormDescription>{description}</FormDescription>}
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+    </LocationWrapper>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { DndContext, closestCenter } from '@dnd-kit/core'
+import { closestCenter, DndContext } from '@dnd-kit/core'
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
 import {
   SortableContext,
@@ -11,7 +11,7 @@ import { CSS } from '@dnd-kit/utilities'
 import type { Table } from '@tanstack/react-table'
 import { GripVertical, Settings2 } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button.js'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -19,10 +19,10 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { usePage } from '@/hooks/use-page'
-import { useUserSettings } from '@/hooks/use-user-settings'
-import { Trans } from '@lingui/react/macro'
+} from '@/components/ui/dropdown-menu.js'
+import { usePage } from '@/hooks/use-page.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
+import { Trans } from '@/lib/trans.js'
 
 interface DataTableViewOptionsProps<TData> {
   table: Table<TData>
@@ -103,7 +103,7 @@ export function DataTableViewOptions<TData>({
             <Trans>Columns</Trans>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-[150px]">
+        <DropdownMenuContent align="end">
           <DndContext
             collisionDetection={closestCenter}
             onDragEnd={handleDragEnd}

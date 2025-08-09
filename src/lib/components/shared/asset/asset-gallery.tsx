@@ -1,15 +1,8 @@
-import { Trans } from '@lingui/react/macro'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useDebounce } from '@uidotdev/usehooks'
-import { Loader2, Search, Upload, X } from 'lucide-react'
-import { useCallback, useState } from 'react'
-import { useDropzone } from 'react-dropzone'
-
-import { VendureImage } from '@/components/shared/vendure-image'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
+import { VendureImage } from '@/components/shared/vendure-image.js'
+import { Button } from '@/components/ui/button.js'
+import { Card, CardContent } from '@/components/ui/card.js'
+import { Checkbox } from '@/components/ui/checkbox.js'
+import { Input } from '@/components/ui/input.js'
 import {
   Pagination,
   PaginationContent,
@@ -18,20 +11,26 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination'
+} from '@/components/ui/pagination.js'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { api } from '@/graphql/api'
-import { assetFragment, type AssetFragment } from '@/graphql/fragments'
-import { graphql } from '@/graphql/graphql'
-import { formatFileSize } from '@/lib/utils'
-
-import { DetailPageButton } from '../detail-page-button'
+} from '@/components/ui/select.js'
+import { api } from '@/graphql/api.js'
+import { assetFragment, type AssetFragment } from '@/graphql/fragments.js'
+import { graphql } from '@/graphql/graphql.js'
+import { Trans } from '@/lib/trans.js'
+import { formatFileSize } from '@/lib/utils.js'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useDebounce } from '@uidotdev/usehooks'
+import { Loader2, Search, Upload, X } from 'lucide-react'
+import { useCallback, useState } from 'react'
+import { useDropzone } from 'react-dropzone'
+import { DetailPageButton } from '../detail-page-button.js'
+import { type AssetBulkAction, AssetBulkActions } from './asset-bulk-actions.js'
 
 const getAssetListDocument = graphql(
   `
@@ -95,6 +94,8 @@ export interface AssetGalleryProps {
   showHeader?: boolean
   className?: string
   onFilesDropped?: (files: File[]) => void
+  bulkActions?: AssetBulkAction[]
+  displayBulkActions?: boolean
 }
 
 export function AssetGallery({
@@ -107,6 +108,8 @@ export function AssetGallery({
   showHeader = true,
   className = '',
   onFilesDropped,
+  bulkActions,
+  displayBulkActions = true,
 }: AssetGalleryProps) {
   // State
   const [page, setPage] = useState(1)
@@ -119,7 +122,7 @@ export function AssetGallery({
   const queryKey = ['AssetGallery', page, pageSize, debouncedSearch, assetType]
 
   // Query for assets
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey,
     queryFn: () => {
       const filter: Record<string, any> = {}
@@ -241,7 +244,7 @@ export function AssetGallery({
 
   return (
     <div
-      className={`flex flex-col w-full ${fixedHeight ? 'h-[600px]' : ''} ${className}`}
+      className={`relative flex flex-col w-full ${fixedHeight ? 'h-[600px]' : ''} ${className}`}
     >
       {showHeader && (
         <div className="flex flex-col md:flex-row gap-2 mb-4 flex-shrink-0">
@@ -281,6 +284,15 @@ export function AssetGallery({
         </div>
       )}
 
+      {/* Bulk actions bar */}
+      {displayBulkActions ? (
+        <AssetBulkActions
+          selection={selected}
+          bulkActions={bulkActions}
+          refetch={refetch}
+        />
+      ) : null}
+
       <div
         {...getRootProps()}
         className={`
@@ -298,7 +310,10 @@ export function AssetGallery({
           </div>
         )}
 
-        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-1">
+        <div
+          data-asset-gallery
+          className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-1"
+        >
           {isLoading ? (
             <div className="col-span-full flex justify-center py-12">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -307,7 +322,11 @@ export function AssetGallery({
             data?.assets.items.map((asset) => (
               <Card
                 key={asset.id}
-                className={`overflow-hidden cursor-pointer transition-all hover:ring-2 hover:ring-primary/20 ${isSelected(asset as Asset) ? 'ring-2 ring-primary' : ''} flex flex-col min-w-[120px]`}
+                className={`
+                                    overflow-hidden cursor-pointer transition-all hover:ring-2 hover:ring-primary/20
+                                    ${isSelected(asset as Asset) ? 'ring-2 ring-primary' : ''}
+                                    flex flex-col min-w-[120px]
+                                `}
                 onClick={(e) => handleSelect(asset as Asset, e)}
               >
                 <div

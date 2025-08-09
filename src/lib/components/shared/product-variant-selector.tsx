@@ -5,21 +5,21 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/components/ui/command'
+} from '@/components/ui/command.js'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
-import { api } from '@/graphql/api'
-import { assetFragment } from '@/graphql/fragments'
-import { graphql } from '@/graphql/graphql'
+} from '@/components/ui/popover.js'
+import { api } from '@/graphql/api.js'
+import { type AssetFragment, assetFragment } from '@/graphql/fragments.js'
+import { graphql } from '@/graphql/graphql.js'
 import { useQuery } from '@tanstack/react-query'
 import { useDebounce } from '@uidotdev/usehooks'
 import { Plus } from 'lucide-react'
 import { useState } from 'react'
-import { Button } from '../ui/button'
-import { VendureImage } from './vendure-image'
+import { Button } from '../ui/button.js'
+import { VendureImage } from './vendure-image.js'
 
 const productVariantListDocument = graphql(
   `
@@ -32,6 +32,13 @@ const productVariantListDocument = graphql(
           featuredAsset {
             ...Asset
           }
+          price
+          priceWithTax
+          product {
+            featuredAsset {
+              ...Asset
+            }
+          }
         }
         totalItems
       }
@@ -41,17 +48,24 @@ const productVariantListDocument = graphql(
 )
 
 export interface ProductVariantSelectorProps {
-  onProductVariantIdChange: (productVariantId: string) => void
+  onProductVariantSelect: (variant: {
+    productVariantId: string
+    productVariantName: string
+    sku: string
+    productAsset: AssetFragment | null
+    price?: number
+    priceWithTax?: number
+  }) => void
 }
 
 export function ProductVariantSelector({
-  onProductVariantIdChange,
-}: ProductVariantSelectorProps) {
+  onProductVariantSelect,
+}: Readonly<ProductVariantSelectorProps>) {
   const [search, setSearch] = useState('')
   const [open, setOpen] = useState(false)
   const debouncedSearch = useDebounce(search, 500)
 
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['productVariants', debouncedSearch],
     staleTime: 1000 * 60 * 5,
     enabled: debouncedSearch.length > 0,
@@ -91,7 +105,17 @@ export function ProductVariantSelector({
                   key={variant.id}
                   value={variant.id}
                   onSelect={() => {
-                    onProductVariantIdChange(variant.id)
+                    onProductVariantSelect({
+                      productVariantId: variant.id,
+                      productVariantName: variant.name,
+                      sku: variant.sku,
+                      productAsset:
+                        variant.featuredAsset ??
+                        variant.product.featuredAsset ??
+                        null,
+                      price: variant.price,
+                      priceWithTax: variant.priceWithTax,
+                    })
                     setOpen(false)
                   }}
                   className="flex items-center gap-2 p-2"

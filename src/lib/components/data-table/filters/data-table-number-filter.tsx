@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react'
-
-import { MoneyInput } from '@/components/data-input/money-input'
-import { Input } from '@/components/ui/input'
+import { MoneyInput } from '@/components/data-input/money-input.js'
+import { Input } from '@/components/ui/input.js'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { useChannel } from '@/hooks/use-channel'
-
-import { HumanReadableOperator } from '../human-readable-operator'
+} from '@/components/ui/select.js'
+import { useChannel } from '@/hooks/use-channel.js'
+import { useEffect, useState } from 'react'
+import { HumanReadableOperator } from '../human-readable-operator.js'
 
 export interface DataTableNumberFilterProps {
   mode: 'number' | 'money'
@@ -33,7 +31,7 @@ export function DataTableNumberFilter({
   mode,
   value: incomingValue,
   onChange,
-}: DataTableNumberFilterProps) {
+}: Readonly<DataTableNumberFilterProps>) {
   const { activeChannel } = useChannel()
   const initialOperator = incomingValue ? Object.keys(incomingValue)[0] : 'eq'
   const initialValue = incomingValue ? Object.values(incomingValue)[0] : 0

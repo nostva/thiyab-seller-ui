@@ -1,7 +1,5 @@
-import type {
-  ResultOf,
-  TypedDocumentNode,
-} from '@graphql-typed-document-node/core'
+import { type ResultOf } from '@/graphql/graphql'
+import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
 
 // Type that identifies a paginated list structure (has items array and totalItems)
 type IsEntity<T> = T extends { id: string } ? true : false

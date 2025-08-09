@@ -1,7 +1,12 @@
+import { QueryClient, useMutation, useQuery } from '@tanstack/react-query'
 import type { ColumnFiltersState } from '@tanstack/react-table'
-import React, { createContext, useEffect, useState } from 'react'
-
-import type { Theme } from './theme-provider'
+import React, { createContext, useEffect, useRef, useState } from 'react'
+import { api } from '../graphql/api.js'
+import {
+  getSettingsStoreValueDocument,
+  setSettingsStoreValueDocument,
+} from '../graphql/settings-store-operations.js'
+import type { Theme } from './theme-provider.js'
 
 export interface TableSettings {
   columnVisibility?: Record<string, boolean>
@@ -18,6 +23,7 @@ export interface UserSettings {
   displayUiExtensionPoints: boolean
   mainNavExpanded: boolean
   activeChannelId: string
+  devMode: boolean
   hasSeenOnboarding: boolean
   tableSettings?: Record<string, TableSettings>
 }
@@ -30,6 +36,7 @@ const defaultSettings: UserSettings = {
   displayUiExtensionPoints: false,
   mainNavExpanded: true,
   activeChannelId: '',
+  devMode: false,
   hasSeenOnboarding: false,
   tableSettings: {},
 }
@@ -43,6 +50,7 @@ export interface UserSettingsContextType {
   setDisplayUiExtensionPoints: (display: boolean) => void
   setMainNavExpanded: (expanded: boolean) => void
   setActiveChannelId: (channelId: string) => void
+  setDevMode: (devMode: boolean) => void
   setHasSeenOnboarding: (hasSeen: boolean) => void
   setTableSettings: <K extends keyof TableSettings>(
     tableId: string,
@@ -56,8 +64,15 @@ export const UserSettingsContext = createContext<
 >(undefined)
 
 const STORAGE_KEY = 'vendure-user-settings'
+const SETTINGS_STORE_KEY = 'vendure.dashboard.userSettings'
 
-export const UserSettingsProvider: React.FC<React.PropsWithChildren<{}>> = ({
+interface UserSettingsProviderProps {
+  queryClient?: QueryClient
+  children: React.ReactNode
+}
+
+export const UserSettingsProvider: React.FC<UserSettingsProviderProps> = ({
+  queryClient,
   children,
 }) => {
   // Load settings from localStorage or use defaults
@@ -74,6 +89,53 @@ export const UserSettingsProvider: React.FC<React.PropsWithChildren<{}>> = ({
   }
 
   const [settings, setSettings] = useState<UserSettings>(loadSettings)
+  const [serverSettings, setServerSettings] = useState<UserSettings | null>(
+    null,
+  )
+  const [isReady, setIsReady] = useState(false)
+  const previousContentLanguage = useRef(settings.contentLanguage)
+
+  // Load settings from server on mount
+  const { data: serverSettingsResponse, isSuccess: serverSettingsLoaded } =
+    useQuery({
+      queryKey: ['user-settings', SETTINGS_STORE_KEY],
+      queryFn: () =>
+        api.query(getSettingsStoreValueDocument, { key: SETTINGS_STORE_KEY }),
+      retry: false,
+      staleTime: 0,
+    })
+
+  // Mutation to save settings to server
+  const saveToServerMutation = useMutation({
+    mutationFn: (settingsToSave: UserSettings) =>
+      api.mutate(setSettingsStoreValueDocument, {
+        input: { key: SETTINGS_STORE_KEY, value: settingsToSave },
+      }),
+    onError: (error) => {
+      console.error('Failed to save user settings to server:', error)
+    },
+  })
+
+  // Initialize settings from server if available
+  useEffect(() => {
+    if (serverSettingsLoaded && !isReady) {
+      try {
+        const serverSettingsData =
+          serverSettingsResponse?.getSettingsStoreValue as UserSettings | null
+        if (serverSettingsData) {
+          // Server has settings, use them
+          const mergedSettings = { ...defaultSettings, ...serverSettingsData }
+          setSettings(mergedSettings)
+          setServerSettings(mergedSettings)
+          setIsReady(true)
+        }
+      } catch (e) {
+        console.error('Failed to parse server settings:', e)
+        setServerSettings(settings)
+        setIsReady(true)
+      }
+    }
+  }, [serverSettingsLoaded, serverSettingsResponse, settings, isReady])
 
   // Save settings to localStorage whenever they change
   useEffect(() => {
@@ -83,6 +145,30 @@ export const UserSettingsProvider: React.FC<React.PropsWithChildren<{}>> = ({
       console.error('Failed to save user settings to localStorage', e)
     }
   }, [settings])
+
+  // Save to server when settings differ from server state
+  useEffect(() => {
+    if (isReady && serverSettings) {
+      const serverDiffers =
+        JSON.stringify(serverSettings) !== JSON.stringify(settings)
+
+      if (serverDiffers) {
+        saveToServerMutation.mutate(settings)
+        setServerSettings(settings)
+      }
+    }
+  }, [settings, serverSettings, isReady, saveToServerMutation])
+
+  // Invalidate all queries when content language changes
+  useEffect(() => {
+    if (
+      queryClient &&
+      settings.contentLanguage !== previousContentLanguage.current
+    ) {
+      void queryClient.invalidateQueries()
+      previousContentLanguage.current = settings.contentLanguage
+    }
+  }, [settings.contentLanguage, queryClient])
 
   // Settings updaters
   const updateSetting = <K extends keyof UserSettings>(
@@ -106,6 +192,7 @@ export const UserSettingsProvider: React.FC<React.PropsWithChildren<{}>> = ({
       updateSetting('mainNavExpanded', expanded),
     setActiveChannelId: (channelId) =>
       updateSetting('activeChannelId', channelId),
+    setDevMode: (devMode) => updateSetting('devMode', devMode),
     setHasSeenOnboarding: (hasSeen) =>
       updateSetting('hasSeenOnboarding', hasSeen),
     setTableSettings: (tableId, key, value) => {

@@ -1,13 +1,11 @@
+import { api } from '@/graphql/api.js'
+import { graphql } from '@/graphql/graphql.js'
 import { useQuery } from '@tanstack/react-query'
-
-import { api } from '@/graphql/api'
-import { graphql } from '@/graphql/graphql'
-
-import { FacetValueChip } from '../shared/facet-value-chip'
+import { FacetValueChip } from '../shared/facet-value-chip.js'
 import {
   type FacetValue,
   FacetValueSelector,
-} from '../shared/facet-value-selector'
+} from '../shared/facet-value-selector.js'
 
 const facetValuesDocument = graphql(`
   query FacetValues($options: FacetValueListOptions) {

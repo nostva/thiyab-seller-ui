@@ -1,4 +1,4 @@
-import { useLocalFormat } from '@/hooks/use-local-format'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
 
 // Original component
 function MoneyInternal({

@@ -1,10 +1,9 @@
+import { Badge } from '@/components/ui/badge.js'
+import { Button } from '@/components/ui/button.js'
+import { Input } from '@/components/ui/input.js'
 import { Plus, X } from 'lucide-react'
 import { useState } from 'react'
 import { useFieldArray, useFormContext } from 'react-hook-form'
-
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 
 interface OptionValue {
   value: string
@@ -35,8 +34,8 @@ interface OptionValueInputProps {
 export function OptionValueInput({
   groupIndex,
   disabled = false,
-}: OptionValueInputProps) {
-  const { control, watch } = useFormContext<FormValues>()
+}: Readonly<OptionValueInputProps>) {
+  const { control } = useFormContext<FormValues>()
   const { fields, append, remove } = useFieldArray({
     control,
     name: `optionGroups.${groupIndex}.values`,

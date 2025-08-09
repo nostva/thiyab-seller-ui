@@ -1,3 +1,11 @@
+import {
+  AnimatedCurrency,
+  AnimatedNumber,
+} from '@/components/shared/animated-number.js'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs.js'
+import { api } from '@/graphql/api.js'
+import { useChannel } from '@/hooks/use-channel.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
 import { useQuery } from '@tanstack/react-query'
 import {
   endOfDay,
@@ -8,17 +16,8 @@ import {
   subMonths,
 } from 'date-fns'
 import { useMemo, useState } from 'react'
-
-import {
-  AnimatedCurrency,
-  AnimatedNumber,
-} from '@/components/shared/animated-number'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { api } from '@/graphql/api'
-import { useChannel, useLocalFormat } from '@/index'
-
-import { DashboardBaseWidget } from '../base-widget'
-import { orderSummaryQuery } from './order-summary-widget.graphql'
+import { DashboardBaseWidget } from '../base-widget.js'
+import { orderSummaryQuery } from './order-summary-widget.graphql.js'
 
 const WIDGET_ID = 'orders-summary-widget'
 
@@ -52,8 +51,6 @@ function PercentageChange({ value }: PercentageChangeProps) {
 
 export function OrdersSummaryWidget() {
   const [range, setRange] = useState<Range>(Range.Today)
-  const { formatCurrency } = useLocalFormat()
-  const { activeChannel } = useChannel()
 
   const variables = useMemo(() => {
     const now = new Date()

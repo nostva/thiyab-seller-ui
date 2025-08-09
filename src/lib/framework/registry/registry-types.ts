@@ -1,10 +1,20 @@
-import type { DashboardAlertDefinition } from '../alert/types'
-import type { DashboardWidgetDefinition } from '../dashboard-widget/types'
 import type {
+  BulkAction,
   DashboardActionBarItem,
+  DashboardLoginExtensions,
   DashboardPageBlockDefinition,
-} from '../extension-api/extension-api-types'
-import type { NavMenuConfig } from '../nav-menu/nav-menu-extensions'
+  DashboardWidgetDefinition,
+} from '@/framework/extension-api/types/index.js'
+import type { DocumentNode } from 'graphql'
+import React from 'react'
+
+import type {
+  DataDisplayComponent,
+  DataInputComponent,
+} from '../component-registry/component-registry.js'
+import type { DashboardAlertDefinition } from '../extension-api/types/alerts.js'
+import type { CustomFormComponentInputProps } from '../form-engine/custom-form-component.js'
+import type { NavMenuConfig } from '../nav-menu/nav-menu-extensions.js'
 
 export interface GlobalRegistryContents {
   extensionSourceChangeCallbacks: Set<() => void>
@@ -14,4 +24,14 @@ export interface GlobalRegistryContents {
   dashboardPageBlockRegistry: Map<string, DashboardPageBlockDefinition[]>
   dashboardWidgetRegistry: Map<string, DashboardWidgetDefinition>
   dashboardAlertRegistry: Map<string, DashboardAlertDefinition>
+  customFormComponents: Map<
+    string,
+    React.FunctionComponent<CustomFormComponentInputProps>
+  >
+  inputComponents: Map<string, DataInputComponent>
+  displayComponents: Map<string, DataDisplayComponent>
+  bulkActionsRegistry: Map<string, BulkAction[]>
+  listQueryDocumentRegistry: Map<string, DocumentNode[]>
+  detailQueryDocumentRegistry: Map<string, DocumentNode[]>
+  loginExtensions: DashboardLoginExtensions
 }

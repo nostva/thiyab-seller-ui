@@ -1,17 +1,15 @@
-import * as React from 'react'
-
-import { NavMain } from '@/components/layout/nav-main'
-import { NavUser } from '@/components/layout/nav-user'
+import { NavMain } from '@/components/layout/nav-main.js'
+import { NavUser } from '@/components/layout/nav-user.js'
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from '@/components/ui/sidebar'
-import { getNavMenuConfig } from '@/framework/nav-menu/nav-menu-extensions'
-
-import { ChannelSwitcher } from './channel-switcher'
+} from '@/components/ui/sidebar.js'
+import { getNavMenuConfig } from '@/framework/nav-menu/nav-menu-extensions.js'
+import * as React from 'react'
+import { ChannelSwitcher } from './channel-switcher.js'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { sections } = getNavMenuConfig()

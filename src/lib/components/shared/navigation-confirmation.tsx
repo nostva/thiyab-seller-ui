@@ -1,8 +1,8 @@
-import { Trans } from '@lingui/react/macro'
+import { Trans } from '@/lib/trans.js'
 import { useBlocker } from '@tanstack/react-router'
 import type { UseFormReturn } from 'react-hook-form'
 
-import { Button } from '../ui/button'
+import { Button } from '../ui/button.js'
 import {
   Dialog,
   DialogContent,
@@ -10,7 +10,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '../ui/dialog'
+} from '../ui/dialog.js'
 
 export interface NavigationConfirmationProps {
   form: UseFormReturn<any>

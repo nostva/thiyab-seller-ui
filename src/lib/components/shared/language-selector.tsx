@@ -1,11 +1,9 @@
-import { useLingui } from '@lingui/react/macro'
+import { api } from '@/graphql/api.js'
+import { graphql } from '@/graphql/graphql.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
+import { useLingui } from '@/lib/trans.js'
 import { useQuery } from '@tanstack/react-query'
-
-import { api } from '@/graphql/api'
-import { graphql } from '@/graphql/graphql'
-import { useLocalFormat } from '@/hooks/use-local-format'
-
-import { MultiSelect } from './multi-select'
+import { MultiSelect } from './multi-select.js'
 
 const availableGlobalLanguages = graphql(`
   query AvailableGlobalLanguages {

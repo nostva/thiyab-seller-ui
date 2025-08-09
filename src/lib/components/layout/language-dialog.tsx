@@ -1,31 +1,27 @@
-import { Trans } from '@lingui/react/macro'
+import { CurrencyCode } from '@/constants.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
+import { Trans } from '@/lib/trans.js'
 import { useState } from 'react'
-
-import { CurrencyCode } from '@/constants'
-import { useLocalFormat } from '@/hooks/use-local-format'
-import { useServerConfig } from '@/hooks/use-server-config'
-import { useUserSettings } from '@/hooks/use-user-settings'
-
-import { Button } from '../ui/button'
+import { Button } from '../ui/button.js'
 import {
   DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '../ui/dialog'
-import { Label } from '../ui/label'
+} from '../ui/dialog.js'
+import { Label } from '../ui/label.js'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select'
+} from '../ui/select.js'
 
 export function LanguageDialog() {
-  const serverConfig = useServerConfig()
-  const { settings, setDisplayLanguage } = useUserSettings()
+  const { settings, setDisplayLanguage, setDisplayLocale } = useUserSettings()
   const availableCurrencyCodes = Object.values(CurrencyCode)
   const { formatCurrency, formatLanguageName, formatCurrencyName, formatDate } =
     useLocalFormat()
@@ -50,13 +46,33 @@ export function LanguageDialog() {
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Select a language" />
             </SelectTrigger>
-            <SelectContent>
-              {serverConfig?.availableLanguages.map((language) => (
+            {/* <SelectContent>
+              {availableLanguages.map((language) => (
                 <SelectItem key={language} value={language}>
                   {formatLanguageName(language)}
                 </SelectItem>
               ))}
-            </SelectContent>
+            </SelectContent> */}
+          </Select>
+        </div>
+        <div className="space-y-1">
+          <Label>
+            <Trans>Locale</Trans>
+          </Label>
+          <Select
+            defaultValue={settings.displayLocale}
+            onValueChange={setDisplayLocale}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select a locale" />
+            </SelectTrigger>
+            {/* <SelectContent>
+              {availableLocales.map((locale) => (
+                <SelectItem key={locale} value={locale}>
+                  {formatLanguageName(locale)}
+                </SelectItem>
+              ))}
+            </SelectContent> */}
           </Select>
         </div>
       </div>

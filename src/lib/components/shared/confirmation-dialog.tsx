@@ -1,6 +1,3 @@
-import { Trans } from '@lingui/react/macro'
-import { useState } from 'react'
-
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,7 +8,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/components/ui/alert-dialog'
+} from '@/components/ui/alert-dialog.js'
+import { Trans } from '@/lib/trans.js'
+import { useState } from 'react'
 
 export function ConfirmationDialog({
   title,

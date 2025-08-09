@@ -1,10 +1,8 @@
+import { api } from '@/graphql/api.js'
+import { graphql } from '@/graphql/graphql.js'
 import { useQuery } from '@tanstack/react-query'
-
-import { api } from '@/graphql/api'
-import { graphql } from '@/graphql/graphql'
-
-import { CustomerGroupChip } from '../shared/customer-group-chip'
-import { CustomerGroupSelector } from '../shared/customer-group-selector'
+import { CustomerGroupChip } from '../shared/customer-group-chip.js'
+import { CustomerGroupSelector } from '../shared/customer-group-selector.js'
 
 const customerGroupsDocument = graphql(`
   query GetCustomerGroups($options: CustomerGroupListOptions) {

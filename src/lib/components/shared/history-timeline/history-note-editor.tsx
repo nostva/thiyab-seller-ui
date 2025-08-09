@@ -1,7 +1,4 @@
-import { Trans } from '@lingui/react/macro'
-import { useState } from 'react'
-
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button.js'
 import {
   Dialog,
   DialogContent,
@@ -9,10 +6,11 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
-import { Textarea } from '@/components/ui/textarea'
-
-import { HistoryNoteCheckbox } from './history-note-checkbox'
+} from '@/components/ui/dialog.js'
+import { Textarea } from '@/components/ui/textarea.js'
+import { Trans } from '@/lib/trans.js'
+import { useState } from 'react'
+import { HistoryNoteCheckbox } from './history-note-checkbox.js'
 
 interface NoteEditorProps {
   note: string

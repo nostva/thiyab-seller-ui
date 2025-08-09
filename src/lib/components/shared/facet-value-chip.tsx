@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui/badge'
+import { Badge } from '@/components/ui/badge.js'
 import { X } from 'lucide-react'
 
 // Interface for facet value type

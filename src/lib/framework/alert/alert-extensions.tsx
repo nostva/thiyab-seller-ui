@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-
-import { globalRegistry } from '../registry/global-registry'
-import type { DashboardAlertDefinition } from './types'
+import type { DashboardAlertDefinition } from '../extension-api/types/alerts.js'
+import { globalRegistry } from '../registry/global-registry.js'
 
 globalRegistry.register(
   'dashboardAlertRegistry',

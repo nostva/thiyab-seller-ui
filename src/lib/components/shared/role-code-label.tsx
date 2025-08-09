@@ -1,9 +1,9 @@
-import { CUSTOMER_ROLE_CODE, SUPER_ADMIN_ROLE_CODE } from '@/constants'
-import { Trans } from '@lingui/react/macro'
+import { CUSTOMER_ROLE_CODE, SUPER_ADMIN_ROLE_CODE } from '@/constants.js'
+import { Trans } from '@/lib/trans.js'
 
 export function RoleCodeLabel({
   code,
-}: { code: string } | { code: undefined }) {
+}: Readonly<{ code: string }> | Readonly<{ code: undefined }>) {
   return code === SUPER_ADMIN_ROLE_CODE ? (
     <Trans>Super Admin</Trans>
   ) : code === CUSTOMER_ROLE_CODE ? (

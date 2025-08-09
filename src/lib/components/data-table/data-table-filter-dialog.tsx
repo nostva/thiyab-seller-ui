@@ -1,8 +1,4 @@
-import { Trans } from '@lingui/react/macro'
-import type { Column } from '@tanstack/react-table'
-import { useState } from 'react'
-
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button.js'
 import {
   DialogClose,
   DialogContent,
@@ -10,19 +6,24 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog'
-import type { ColumnDataType } from './data-table-types'
-import { DataTableBooleanFilter } from './filters/data-table-boolean-filter'
-import { DataTableDateTimeFilter } from './filters/data-table-datetime-filter'
-import { DataTableIdFilter } from './filters/data-table-id-filter'
-import { DataTableNumberFilter } from './filters/data-table-number-filter'
-import { DataTableStringFilter } from './filters/data-table-string-filter'
+} from '@/components/ui/dialog.js'
+import { Trans } from '@/lib/trans.js'
+import type { Column } from '@tanstack/react-table'
+import { useState } from 'react'
+import { DataTableBooleanFilter } from './filters/data-table-boolean-filter.js'
+import { DataTableDateTimeFilter } from './filters/data-table-datetime-filter.js'
+import { DataTableIdFilter } from './filters/data-table-id-filter.js'
+import { DataTableNumberFilter } from './filters/data-table-number-filter.js'
+import { DataTableStringFilter } from './filters/data-table-string-filter.js'
+import type { ColumnDataType } from './types.js'
 
 export interface DataTableFilterDialogProps {
   column: Column<any>
 }
 
-export function DataTableFilterDialog({ column }: DataTableFilterDialogProps) {
+export function DataTableFilterDialog({
+  column,
+}: Readonly<DataTableFilterDialogProps>) {
   const columnFilter = column.getFilterValue() as
     | Record<string, string>
     | undefined
@@ -77,7 +78,7 @@ export function DataTableFilterDialog({ column }: DataTableFilterDialogProps) {
           <Button
             type="button"
             variant="secondary"
-            onClick={(e) => {
+            onClick={() => {
               column.setFilterValue(filter)
               setFilter(undefined)
             }}

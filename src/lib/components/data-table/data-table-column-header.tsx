@@ -1,8 +1,7 @@
+import { Button } from '@/components/ui/button.js'
+import { camelCaseToTitleCase } from '@/lib/utils.js'
 import type { ColumnDef, HeaderContext } from '@tanstack/table-core'
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react'
-
-import { Button } from '@/components/ui/button'
-import { camelCaseToTitleCase } from '@/lib/utils'
 
 export interface DataTableColumnHeaderProps {
   customConfig: Partial<ColumnDef<any>>
@@ -12,7 +11,7 @@ export interface DataTableColumnHeaderProps {
 export function DataTableColumnHeader({
   headerContext,
   customConfig,
-}: DataTableColumnHeaderProps) {
+}: Readonly<DataTableColumnHeaderProps>) {
   const { column } = headerContext
   const isSortable = column.getCanSort()
 

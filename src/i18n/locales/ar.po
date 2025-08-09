@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ar\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/stock-level-label.tsx:29
@@ -81,7 +87,7 @@ msgstr ""
 msgid "{operator}"
 msgstr ""
 
-#: src/lib/framework/dashboard-widget/base-widget.tsx:111
+#: src/lib/framework/dashboard-widget/base-widget.tsx:120
 msgid "{title}"
 msgstr ""
 
@@ -179,6 +185,10 @@ msgstr ""
 #: src/lib/components/shared/role-code-label.tsx:10
 msgid "Customer"
 msgstr ""
+
+#: src/app/routes/_authenticated/index.tsx:177
+msgid "Dashboard"
+msgstr "لوحة التحكم"
 
 #: src/lib/components/shared/customer-address-form.tsx:337
 msgid "Default Billing Address"
@@ -340,7 +350,7 @@ msgstr ""
 msgid "Note is private"
 msgstr ""
 
-#: src/lib/components/login/login-form.tsx:102
+#: src/lib/components/login/login-form.tsx:101
 msgid "Password"
 msgstr ""
 
@@ -412,7 +422,7 @@ msgstr ""
 msgid "Type at least 2 characters to search..."
 msgstr ""
 
-#: src/lib/framework/page/detail-page.tsx:148
+#: src/lib/framework/page/detail-page.tsx:147
 msgid "Update"
 msgstr ""
 
@@ -432,7 +442,7 @@ msgstr ""
 msgid "Use as the default shipping address"
 msgstr ""
 
-#: src/lib/components/login/login-form.tsx:83
+#: src/lib/components/login/login-form.tsx:82
 msgid "Username"
 msgstr ""
 
@@ -444,6 +454,6 @@ msgstr ""
 msgid "Visible to customer"
 msgstr ""
 
-#: src/lib/components/login/login-form.tsx:70
+#: src/lib/components/login/login-form.tsx:69
 msgid "Welcome back!"
 msgstr ""

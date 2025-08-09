@@ -1,10 +1,9 @@
-import { Trans } from '@lingui/react/macro'
-
-import { BOOLEAN_OPERATORS } from './filters/data-table-boolean-filter'
-import { DATETIME_OPERATORS } from './filters/data-table-datetime-filter'
-import { ID_OPERATORS } from './filters/data-table-id-filter'
-import { NUMBER_OPERATORS } from './filters/data-table-number-filter'
-import { STRING_OPERATORS } from './filters/data-table-string-filter'
+import { Trans } from '@/lib/trans.js'
+import { BOOLEAN_OPERATORS } from './filters/data-table-boolean-filter.js'
+import { DATETIME_OPERATORS } from './filters/data-table-datetime-filter.js'
+import { ID_OPERATORS } from './filters/data-table-id-filter.js'
+import { NUMBER_OPERATORS } from './filters/data-table-number-filter.js'
+import { STRING_OPERATORS } from './filters/data-table-string-filter.js'
 
 export type Operator =
   | (typeof DATETIME_OPERATORS)[number]

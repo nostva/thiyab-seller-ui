@@ -9,7 +9,6 @@ import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
-import { LogoMark } from '../shared/logo-mark'
 import {
   Form,
   FormControl,

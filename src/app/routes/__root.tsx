@@ -1,15 +1,17 @@
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
+import { AuthContext } from '@/providers/auth.js'
+import { QueryClient } from '@tanstack/react-query'
+import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
 
-import type { QueryClient } from '@tanstack/react-query'
-import type { AuthContext } from '@/providers/auth'
-
-interface MyRouterContext {
+export interface MyRouterContext {
   auth: AuthContext
   queryClient: QueryClient
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   component: RootComponent,
+  search: {
+    // middlewares: [retainSearchParams(['page', 'perPage', 'sort'] as any)],
+  },
 })
 
 function RootComponent() {

@@ -1,28 +1,23 @@
-import { CheckIcon, XIcon } from 'lucide-react'
-import React from 'react'
+import { CheckIcon, XIcon } from 'lucide-react';
+import React from 'react';
+import { Badge } from '../ui/badge.js';
 
-import { Badge } from '../ui/badge'
-
-export function BooleanDisplayCheckbox({ value }: { value: boolean }) {
-  return value ? (
-    <CheckIcon className="opacity-70" />
-  ) : (
-    <XIcon className="opacity-70" />
-  )
+export function BooleanDisplayCheckbox({ value }: Readonly<{ value: boolean }>) {
+    return value ? <CheckIcon className="opacity-70" /> : <XIcon className="opacity-70" />;
 }
 
 export function BooleanDisplayBadge({
-  value,
-  labelTrue,
-  labelFalse,
+    value,
+    labelTrue,
+    labelFalse,
 }: {
-  value: boolean
-  labelTrue?: string | React.ReactNode
-  labelFalse?: string | React.ReactNode
+    value: boolean;
+    labelTrue?: string | React.ReactNode;
+    labelFalse?: string | React.ReactNode;
 }) {
-  return (
-    <Badge variant={value ? 'success' : 'destructive'}>
-      {value ? (labelTrue ?? 'Enabled') : (labelFalse ?? 'Disabled')}
-    </Badge>
-  )
+    return (
+        <Badge variant={value ? 'success' : 'destructive'}>
+            {value ? (labelTrue ?? 'Enabled') : (labelFalse ?? 'Disabled')}
+        </Badge>
+    );
 }

@@ -1,7 +1,7 @@
+import { useChannel } from '@/hooks/use-channel.js'
+import { useLocalFormat } from '@/hooks/use-local-format.js'
 import { motion, useSpring, useTransform } from 'motion/react'
 import { useEffect } from 'react'
-
-import { useChannel, useLocalFormat } from '@/index'
 
 type AnimationConfig = {
   mass?: number

@@ -1,6 +1,6 @@
-import { type ReactNode, useEffect, useRef, useState } from 'react'
-
-import { Input } from '../ui/input'
+import type { ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Input } from '../ui/input.js'
 
 interface AffixedInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'prefix'> {
@@ -13,7 +13,7 @@ export function AffixedInput({
   suffix,
   className = '',
   ...props
-}: AffixedInputProps) {
+}: Readonly<AffixedInputProps>) {
   const prefixRef = useRef<HTMLSpanElement>(null)
   const suffixRef = useRef<HTMLSpanElement>(null)
   const [prefixWidth, setPrefixWidth] = useState(0)
