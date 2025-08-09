@@ -2,7 +2,7 @@ import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
 import { AwesomeGraphQLClient } from 'awesome-graphql-client'
 import { type DocumentNode, print } from 'graphql'
 
-export const ADMIN_API_URL = import.meta.env.VITE_API_SERVER_URL
+export const API_SERVER_URL = import.meta.env.VITE_API_SERVER_URL
 
 console.log(import.meta.env)
 
@@ -10,7 +10,7 @@ export type Variables = object
 export type RequestDocument = string | DocumentNode
 
 const awesomeClient = new AwesomeGraphQLClient({
-  endpoint: ADMIN_API_URL,
+  endpoint: API_SERVER_URL,
   fetch: async (url: string, options: RequestInit = {}) => {
     // Get the active channel token from localStorage
     const channelToken = localStorage.getItem('vendure-selected-channel-token')
