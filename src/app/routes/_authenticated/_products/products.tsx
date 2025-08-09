@@ -3,7 +3,7 @@ import { PermissionGuard } from '@/components/shared/permission-guard.js'
 import { Button } from '@/components/ui/button.js'
 import { PageActionBarRight } from '@/framework/layout-engine/page-layout.js'
 import { ListPage } from '@/framework/page/list-page.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { PlusIcon } from 'lucide-react'
 import {
@@ -29,7 +29,7 @@ function ProductListPage() {
       pageId="product-list"
       listQuery={productListDocument}
       deleteMutation={deleteProductDocument}
-      title="Products"
+      title={<Trans>Products</Trans>}
       customizeColumns={{
         name: {
           header: 'Product Name',

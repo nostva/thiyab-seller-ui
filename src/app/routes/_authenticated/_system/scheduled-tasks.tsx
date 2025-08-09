@@ -14,9 +14,9 @@ import {
   PageTitle,
 } from '@/framework/layout-engine/page-layout.js'
 import { api } from '@/graphql/api.js'
-import { graphql, ResultOf } from '@/graphql/graphql.js'
+import { graphql, type ResultOf } from '@/graphql/graphql.js'
 import { useLocalFormat } from '@/hooks/use-local-format.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import { createColumnHelper } from '@tanstack/react-table'
@@ -91,10 +91,10 @@ function ScheduledTasksPage() {
         (result as ResultOf<typeof runScheduledTaskDocument>).runScheduledTask
           .success
       ) {
-        toast.success(i18n.t(`Scheduled task will be executed`))
+        toast.success(i18n.t('Scheduled task will be executed'))
         queryClient.invalidateQueries({ queryKey: ['scheduledTasks'] })
       } else {
-        toast.error(i18n.t(`Scheduled task could not be executed`))
+        toast.error(i18n.t('Scheduled task could not be executed'))
       }
     },
   })

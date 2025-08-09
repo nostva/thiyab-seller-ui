@@ -13,7 +13,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip.js'
 import { useGroupedPermissions } from '@/hooks/use-grouped-permissions.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { ServerConfig } from '@/providers/server-config.js'
 import { useState } from 'react'
 

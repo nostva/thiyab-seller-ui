@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/select.js'
 import { api } from '@/graphql/api.js'
 import { graphql, ResultOf } from '@/graphql/graphql.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useQuery } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'

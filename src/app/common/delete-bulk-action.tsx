@@ -6,7 +6,7 @@ import { DataTableBulkActionItem } from '@/components/data-table/data-table-bulk
 import { usePaginatedList } from '@/components/shared/paginated-list-data-table.js'
 import { getMutationName } from '@/framework/document-introspection/get-document-structure.js'
 import { api } from '@/graphql/api.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 
 interface DeleteBulkActionProps {
   /** The GraphQL mutation document to execute */
@@ -105,15 +105,27 @@ export function DeleteBulkAction({
       }
 
       if (0 < deleted) {
-        toast.success(i18n.t(`Deleted ${deleted} ${entityName}`))
+        toast.success(
+          i18n._({
+            id: 'entity-count-deleted',
+            values: {
+              count: deleted,
+              entityName: entityName.toLowerCase(),
+            },
+            message: 'Deleted {count} {entityName}',
+          }),
+        )
       }
       if (0 < failed) {
-        const errorMessage =
-          errors.length > 0
-            ? i18n.t(
-                `Failed to delete ${failed} ${entityName}: ${errors.join(', ')}`,
-              )
-            : i18n.t(`Failed to delete ${failed} ${entityName}`)
+        const errorMessage = i18n._({
+          id: 'failed-to-delete',
+          values: {
+            count: failed,
+            entityName: entityName.toLowerCase(),
+            error: errors.join(', '),
+          },
+          message: 'Failed to delete {count} {entityName}: {error}',
+        })
         toast.error(errorMessage)
       }
 

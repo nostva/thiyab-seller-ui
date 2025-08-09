@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import {
   EllipsisVertical,

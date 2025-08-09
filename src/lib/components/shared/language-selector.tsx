@@ -1,7 +1,7 @@
 import { api } from '@/graphql/api.js'
 import { graphql } from '@/graphql/graphql.js'
 import { useLocalFormat } from '@/hooks/use-local-format.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import { useQuery } from '@tanstack/react-query'
 import { MultiSelect } from './multi-select.js'
 

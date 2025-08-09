@@ -6,7 +6,7 @@ import { DataTableBulkActionItem } from '@/components/data-table/data-table-bulk
 import { usePaginatedList } from '@/components/shared/paginated-list-data-table.js'
 import type { ResultOf } from '@/graphql/graphql.js'
 import { useChannel } from '@/hooks/use-channel.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 
 interface RemoveFromChannelBulkActionProps {
   selection: any[]
@@ -49,9 +49,14 @@ export function RemoveFromChannelBulkAction({
     onSuccess: (result) => {
       const message =
         successMessage ||
-        i18n.t(
-          `Successfully removed ${selection.length} ${entityType} from channel`,
-        )
+        i18n._({
+          id: 'successfully-removed-from-channel',
+          values: {
+            count: selection.length,
+            entityType: entityType.toLowerCase(),
+          },
+          message: 'Successfully removed {count} {entityType} from channel',
+        })
       toast.success(message)
       refetchPaginatedList()
       table.resetRowSelection()

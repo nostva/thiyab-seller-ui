@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/dialog.js'
 import { Input } from '@/components/ui/input.js'
 import { Label } from '@/components/ui/label.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { useState } from 'react'
 
 type SettleRefundDialogProps = {

@@ -14,7 +14,7 @@ import { addCustomFields } from '@/framework/document-introspection/add-custom-f
 import { getFieldsFromDocumentNode } from '@/framework/document-introspection/get-document-structure.js'
 import { ResultOf } from '@/graphql/graphql.js'
 import { useUserSettings } from '@/hooks/use-user-settings.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { JsonEditor } from 'json-edit-react'
 import { EllipsisVertical } from 'lucide-react'
 import { useMemo } from 'react'

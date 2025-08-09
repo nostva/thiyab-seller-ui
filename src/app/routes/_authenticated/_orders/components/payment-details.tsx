@@ -8,7 +8,7 @@ import {
 import { api } from '@/graphql/api.js'
 import { ResultOf } from '@/graphql/graphql.js'
 import { useLocalFormat } from '@/hooks/use-local-format.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useMutation } from '@tanstack/react-query'
 import { JsonEditor } from 'json-edit-react'
 import { ChevronDown } from 'lucide-react'

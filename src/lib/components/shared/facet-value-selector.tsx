@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/popover.js'
 import { api } from '@/graphql/api.js'
 import { graphql } from '@/graphql/graphql.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 import { useDebounce } from '@uidotdev/usehooks'
 import { ChevronRight, Loader2, Plus } from 'lucide-react'

@@ -12,7 +12,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import { Check, ChevronsUpDown, Plus } from 'lucide-react'
 import { useState } from 'react'

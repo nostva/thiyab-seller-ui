@@ -1,5 +1,5 @@
 import { Checkbox } from '@/components/ui/checkbox.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 
 interface HistoryNoteCheckboxProps {
   value: boolean

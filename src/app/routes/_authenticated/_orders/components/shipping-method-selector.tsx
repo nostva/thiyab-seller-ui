@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from '@/components/ui/card.js'
 import { ResultOf } from '@/graphql/graphql.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { draftOrderEligibleShippingMethodsDocument } from '../orders.graphql.js'
 
 type ShippingMethodQuote = ResultOf<

@@ -1,5 +1,5 @@
 import { extendDetailFormQuery } from '@/framework/document-extension/extend-detail-form-query.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import type { DocumentNode } from 'graphql'
 import { useEffect, useMemo, useRef } from 'react'
 import { toast } from 'sonner'

@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { camelCaseToTitleCase } from '@/lib/utils.js'
 import type { Column, ColumnDef } from '@tanstack/react-table'
 import { PlusCircle } from 'lucide-react'

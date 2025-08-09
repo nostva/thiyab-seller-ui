@@ -1,5 +1,5 @@
 import { usePermissions } from '@/hooks/use-permissions.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import type { LucideIcon } from 'lucide-react'
 import { useState } from 'react'

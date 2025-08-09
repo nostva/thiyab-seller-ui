@@ -1,7 +1,7 @@
 import { Alert, AlertDescription } from '@/components/ui/alert.js'
 import { Button } from '@/components/ui/button.js'
 import { Skeleton } from '@/components/ui/skeleton.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { TriangleAlert } from 'lucide-react'
 import { OrderHistory } from './order-history.js'
 import { useOrderHistory } from './use-order-history.js'

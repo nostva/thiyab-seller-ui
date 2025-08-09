@@ -2,7 +2,7 @@ import { OverriddenFormComponent } from '@/framework/form-engine/overridden-form
 import { LocationWrapper } from '@/framework/layout-engine/location-wrapper.js'
 import { useLocalFormat } from '@/hooks/use-local-format.js'
 import { useUserSettings } from '@/hooks/use-user-settings.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import {
   Controller,
   type ControllerProps,

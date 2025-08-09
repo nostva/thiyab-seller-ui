@@ -11,7 +11,7 @@ import { getBulkActions } from '@/framework/data-table/data-table-extensions.js'
 import { useFloatingBulkActions } from '@/hooks/use-floating-bulk-actions.js'
 import { usePageBlock } from '@/hooks/use-page-block.js'
 import { usePage } from '@/hooks/use-page.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { ChevronDown } from 'lucide-react'
 import type { Asset } from './asset-gallery.js'
 

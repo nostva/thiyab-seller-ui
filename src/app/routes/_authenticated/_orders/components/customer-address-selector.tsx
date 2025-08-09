@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/popover.js'
 import { api } from '@/graphql/api.js'
 import { graphql, ResultOf } from '@/graphql/graphql.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import { useQuery } from '@tanstack/react-query'
 import { Plus } from 'lucide-react'

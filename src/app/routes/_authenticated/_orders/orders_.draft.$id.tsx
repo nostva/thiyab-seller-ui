@@ -20,7 +20,7 @@ import {
   useDetailPage,
 } from '@/framework/page/use-detail-page.js'
 import { api } from '@/graphql/api.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import {
   createFileRoute,

@@ -1,6 +1,5 @@
 import fs from 'fs'
 import {
-  buildSchema,
   GraphQLList,
   GraphQLNonNull,
   GraphQLObjectType,
@@ -8,6 +7,8 @@ import {
   isInputObjectType,
   isObjectType,
   isScalarType,
+  getIntrospectionQuery,
+  buildClientSchema,
 } from 'graphql'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -73,8 +74,7 @@ function generateSchemaInfo(schema) {
   return result
 }
 
-// Generate schema info at build time
-const schemaPath = path.join(__dirname, '..', 'schema.graphql')
+// Generate schema info by introspecting a running Admin API
 const outputPath = path.join(
   __dirname,
   '..',
@@ -83,16 +83,6 @@ const outputPath = path.join(
   'graphql',
   'schema-info.ts',
 )
-
-let schemaInfo
-try {
-  const schemaString = fs.readFileSync(schemaPath, 'utf8')
-  const safeSchema = buildSchema(schemaString)
-  schemaInfo = generateSchemaInfo(safeSchema)
-} catch (error) {
-  console.warn('Failed to load schema.graphql, using empty schema info:', error)
-  schemaInfo = { types: {}, inputs: {}, scalars: [], enums: {} }
-}
 
 const interfaceDef = `export type FieldInfoTuple = [
   type: string,
@@ -119,5 +109,49 @@ export interface SchemaInfo {
 }
 `
 
-const fileContent = `${interfaceDef}\nexport const schemaInfo: SchemaInfo = ${JSON.stringify(schemaInfo, null, 2)};\n`
-fs.writeFileSync(outputPath, fileContent)
+async function main() {
+  const adminApiUrl =
+    process.env.ADMIN_API_URL || 'http://localhost:3000/admin-api'
+
+  const headers = { 'content-type': 'application/json' }
+
+  if (process.env.ADMIN_API_COOKIE) {
+    headers['cookie'] = process.env.ADMIN_API_COOKIE
+  }
+  if (process.env.ADMIN_API_TOKEN) {
+    headers['authorization'] = `Bearer ${process.env.ADMIN_API_TOKEN}`
+  }
+
+  let schemaInfo
+  try {
+    const response = await fetch(adminApiUrl, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ query: getIntrospectionQuery() }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} ${response.statusText}`)
+    }
+
+    const json = await response.json()
+    if (json.errors) {
+      const message = json.errors.map((e) => e.message).join('; ')
+      throw new Error(`GraphQL errors: ${message}`)
+    }
+
+    const schema = buildClientSchema(json.data)
+    schemaInfo = generateSchemaInfo(schema)
+  } catch (error) {
+    console.warn(
+      'Failed to introspect Admin API, using empty schema info:',
+      error,
+    )
+    schemaInfo = { types: {}, inputs: {}, scalars: [], enums: {} }
+  }
+
+  const fileContent = `${interfaceDef}\nexport const schemaInfo: SchemaInfo = ${JSON.stringify(schemaInfo, null, 2)};\n`
+  fs.writeFileSync(outputPath, fileContent)
+}
+
+await main()

@@ -1,22 +1,25 @@
 import {
-    registerDashboardActionBarItem,
-    registerDashboardPageBlock,
-} from '../../layout-engine/layout-extensions.js';
-import { DashboardActionBarItem, DashboardPageBlockDefinition } from '../types/layout.js';
+  registerDashboardActionBarItem,
+  registerDashboardPageBlock,
+} from '../../layout-engine/layout-extensions.js'
+import type {
+  DashboardActionBarItem,
+  DashboardPageBlockDefinition,
+} from '../types/layout.js'
 
 export function registerLayoutExtensions(
-    actionBarItems?: DashboardActionBarItem[],
-    pageBlocks?: DashboardPageBlockDefinition[],
+  actionBarItems?: DashboardActionBarItem[],
+  pageBlocks?: DashboardPageBlockDefinition[],
 ) {
-    if (actionBarItems) {
-        for (const item of actionBarItems) {
-            registerDashboardActionBarItem(item);
-        }
+  if (actionBarItems) {
+    for (const item of actionBarItems) {
+      registerDashboardActionBarItem(item)
     }
+  }
 
-    if (pageBlocks) {
-        for (const block of pageBlocks) {
-            registerDashboardPageBlock(block);
-        }
+  if (pageBlocks) {
+    for (const block of pageBlocks) {
+      registerDashboardPageBlock(block)
     }
+  }
 }

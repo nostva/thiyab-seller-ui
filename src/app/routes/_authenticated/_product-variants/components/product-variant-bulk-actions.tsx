@@ -9,7 +9,7 @@ import { api } from '@/graphql/api.js'
 import { BulkActionComponent } from '@/framework/extension-api/types/data-table.js'
 import { useChannel } from '@/hooks/use-channel.js'
 import { usePaginatedList } from '@/components/shared/paginated-list-data-table.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { DeleteBulkAction } from '../../../../common/delete-bulk-action.js'
 
 import { AssignFacetValuesDialog } from '../../_products/components/assign-facet-values-dialog.js'

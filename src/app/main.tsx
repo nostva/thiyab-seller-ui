@@ -2,13 +2,13 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { registerDefaults } from '@/framework/defaults.ts'
-import { useAuth } from '@/hooks/use-auth.tsx'
-import { Toaster } from '@/index.ts'
+import { registerDefaults } from '@/framework/defaults.js'
+import { useAuth } from '@/hooks/use-auth.js'
+import { Toaster } from '@/index.js'
 
-import { defaultLocale, dynamicActivate } from '@/providers/i18n-provider.tsx'
-import { AppProviders, queryClient } from './app-providers'
-import { routeTree } from './routeTree.gen.ts'
+import { defaultLocale, dynamicActivate } from '@/providers/i18n-provider.js'
+import { AppProviders, queryClient } from './app-providers.js'
+import { routeTree } from './routeTree.gen.js'
 import './styles.css'
 
 // Register the router instance for type safety

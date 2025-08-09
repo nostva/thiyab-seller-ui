@@ -7,7 +7,7 @@ import {
   TableRow,
 } from '@/components/ui/table.js'
 import { useLocalFormat } from '@/hooks/use-local-format.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { Order } from '../utils/order-types.js'
 
 export function OrderTaxSummary({ order }: Readonly<{ order: Order }>) {

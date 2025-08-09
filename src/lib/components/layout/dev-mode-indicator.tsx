@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge.js'
 import { Button } from '@/components/ui/button.js'
 import { useUserSettings } from '@/hooks/use-user-settings.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { CodeXmlIcon, XIcon } from 'lucide-react'
 
 export function DevModeIndicator() {

@@ -6,7 +6,7 @@ import {
   SelectValue,
 } from '@/components/ui/select.js'
 import { useUserSettings } from '@/hooks/use-user-settings.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import type { StringFieldOption } from '@vendure/common/lib/generated-types'
 import type { ControllerRenderProps } from 'react-hook-form'
 import React from 'react'

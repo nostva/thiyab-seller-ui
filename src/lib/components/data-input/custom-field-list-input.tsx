@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import {
   closestCenter,
   DndContext,

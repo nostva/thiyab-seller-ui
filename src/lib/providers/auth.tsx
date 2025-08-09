@@ -1,4 +1,6 @@
-import { api, graphql, type ResultOf, useUserSettings } from '@/index.js'
+import { api } from '@/graphql/api.js'
+import { ResultOf, graphql } from '@/graphql/graphql.js'
+import { useUserSettings } from '@/hooks/use-user-settings.js'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import * as React from 'react'
 

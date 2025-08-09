@@ -19,7 +19,7 @@ import {
 import { api } from '@/graphql/api.js'
 import { ResultOf } from '@/graphql/graphql.js'
 import { useCustomFieldConfig } from '@/hooks/use-custom-field-config.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   createFileRoute,

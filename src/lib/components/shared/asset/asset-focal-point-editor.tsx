@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import { DndContext, useDraggable } from '@dnd-kit/core'
 import { restrictToParentElement } from '@dnd-kit/modifiers'

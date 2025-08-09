@@ -9,7 +9,7 @@ import { RemoveFromChannelBulkAction } from '@/components/shared/remove-from-cha
 import { BulkActionComponent } from '@/framework/extension-api/types/data-table.js'
 import { api } from '@/graphql/api.js'
 import { useChannel } from '@/hooks/use-channel.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { DeleteBulkAction } from '../../../../common/delete-bulk-action.js'
 import { DuplicateBulkAction } from '../../../../common/duplicate-bulk-action.js'
 import {

@@ -15,7 +15,7 @@ import {
 import { api } from '@/graphql/api.js'
 import { graphql } from '@/graphql/graphql.js'
 import { useGroupedPermissions } from '@/hooks/use-grouped-permissions.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import { useQuery } from '@tanstack/react-query'
 
 const rolesByIdDocument = graphql(`

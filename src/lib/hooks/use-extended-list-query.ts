@@ -1,6 +1,6 @@
 import { getListQueryDocuments } from '@/framework/data-table/data-table-extensions.js'
 import { extendDocument } from '@/framework/document-extension/extend-document.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import type { DocumentNode } from 'graphql'
 import { useEffect, useMemo, useRef } from 'react'
 import { toast } from 'sonner'

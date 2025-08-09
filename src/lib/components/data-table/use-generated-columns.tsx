@@ -5,7 +5,7 @@ import {
   getOperationVariablesFields,
 } from '@/framework/document-introspection/get-document-structure.js'
 import { api } from '@/graphql/api.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core'
 import { useMutation } from '@tanstack/react-query'
 import {

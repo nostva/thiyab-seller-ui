@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import type { Column } from '@tanstack/react-table'
 import { useState } from 'react'
 import { DataTableBooleanFilter } from './filters/data-table-boolean-filter.js'

@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from '@/components/ui/select.js'
 import type { ResultOf } from '@/graphql/graphql.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 
 import { useChannel } from '@/hooks/use-channel.js'
 
@@ -76,9 +76,14 @@ export function AssignToChannelDialog({
     mutationFn,
     onSuccess: () => {
       toast.success(
-        i18n.t(
-          `Successfully assigned ${entityIds.length} ${entityType} to channel`,
-        ),
+        i18n._({
+          id: 'successfully-assigned-to-channel',
+          values: {
+            count: entityIds.length,
+            entityType: entityType.toLowerCase(),
+          },
+          message: 'Successfully assigned {count} {entityType} to channel',
+        }),
       )
       onSuccess?.()
       onOpenChange(false)

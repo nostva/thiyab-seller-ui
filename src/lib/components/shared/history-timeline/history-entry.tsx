@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.js'
 import { Separator } from '@/components/ui/separator.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import { MoreVerticalIcon, PencilIcon, TrashIcon } from 'lucide-react'
 import { HistoryEntryDate } from './history-entry-date.js'

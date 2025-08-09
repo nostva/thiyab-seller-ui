@@ -1,6 +1,6 @@
 import { CurrencyCode } from '@/constants.js'
 import { useLocalFormat } from '@/hooks/use-local-format.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import { MultiSelect } from './multi-select.js'
 
 export interface CurrencySelectorProps<T extends boolean> {

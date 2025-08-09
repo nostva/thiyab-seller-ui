@@ -11,7 +11,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog.js'
 import { api } from '@/graphql/api.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useMutation } from '@tanstack/react-query'
 import { EditIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'

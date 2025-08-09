@@ -6,7 +6,7 @@ import { api } from '@/graphql/api.js'
 import { ResultOf } from '@/graphql/graphql.js'
 import { BulkActionComponent } from '@/framework/extension-api/types/data-table.js'
 import { useChannel } from '@/hooks/use-channel.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import { DeleteBulkAction } from '../../../../common/delete-bulk-action.js'
 import { DuplicateBulkAction } from '../../../../common/duplicate-bulk-action.js'
 
@@ -81,7 +81,13 @@ export const RemoveFacetsFromChannelBulkAction: BulkActionComponent<any> = ({
             } else if ('message' in item) {
               errors.push(item.message)
               toast.error(
-                i18n.t(`Failed to remove facet from channel: ${item.message}`),
+                i18n._({
+                  id: 'failed-to-remove-facet-from-channel',
+                  values: {
+                    error: item.message,
+                  },
+                  message: 'Failed to remove facet from channel: {error}',
+                }),
               )
             }
           }
@@ -90,9 +96,13 @@ export const RemoveFacetsFromChannelBulkAction: BulkActionComponent<any> = ({
 
           if (successCount > 0) {
             toast.success(
-              i18n.t(
-                `Successfully removed ${successCount} facets from channel`,
-              ),
+              i18n._({
+                id: 'successfully-removed-facets-from-channel',
+                values: {
+                  count: successCount,
+                },
+                message: 'Successfully removed {count} facets from channel',
+              }),
             )
           }
         }

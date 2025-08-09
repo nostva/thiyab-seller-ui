@@ -21,7 +21,7 @@ import {
 import { Input } from '@/components/ui/input.js'
 import { ScrollArea } from '@/components/ui/scroll-area.js'
 import { api } from '@/graphql/api.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { ChevronRight, Folder, FolderOpen, Search } from 'lucide-react'
 
 import {

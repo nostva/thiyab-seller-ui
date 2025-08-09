@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/popover.js'
 import { getQueryName } from '@/framework/document-introspection/get-document-structure.js'
 import { api } from '@/graphql/api.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { useDebounce } from '@uidotdev/usehooks'

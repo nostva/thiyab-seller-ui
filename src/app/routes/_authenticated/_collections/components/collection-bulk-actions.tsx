@@ -2,7 +2,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import { FolderTree } from 'lucide-react'
 
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { AssignToChannelBulkAction } from '@/components/shared/assign-to-channel-bulk-action.js'
 import { RemoveFromChannelBulkAction } from '@/components/shared/remove-from-channel-bulk-action.js'
 import { api } from '@/graphql/api.js'

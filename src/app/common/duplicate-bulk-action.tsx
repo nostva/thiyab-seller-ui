@@ -7,7 +7,7 @@ import { DataTableBulkActionItem } from '@/components/data-table/data-table-bulk
 import { usePaginatedList } from '@/components/shared/paginated-list-data-table.js'
 import { api } from '@/graphql/api.js'
 import { duplicateEntityDocument } from '@/graphql/common-operations.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 
 interface DuplicateBulkActionProps {
   entityType: 'Product' | 'Collection' | 'Facet' | 'Promotion'
@@ -93,9 +93,14 @@ export function DuplicateBulkAction({
       // Show results
       if (results.success > 0) {
         toast.success(
-          i18n.t(
-            `Successfully duplicated ${results.success} ${entityName.toLowerCase()}s`,
-          ),
+          i18n._({
+            id: 'successfully-duplicated',
+            values: {
+              count: results.success,
+              entityName: entityName.toLowerCase(),
+            },
+            message: 'Successfully duplicated {count} {entityName}s',
+          }),
         )
       }
       if (results.failed > 0) {

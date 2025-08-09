@@ -7,21 +7,23 @@
     "vite.config.js"
   ],
   "compilerOptions": {
-    "target": "ES2022",
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client"],
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "noEmit": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noLib": false,
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
+    "strictPropertyInitialization": false,
+    "sourceMap": false,
+    "newLine": "LF",
+    "resolveJsonModule": true,
+    "lib": ["dom"],
+    "types": ["node"],
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/lib/*"]
@@ -29,8 +31,8 @@
     "plugins": [
       {
         "name": "gql.tada/ts-plugin",
-        "schema": "schema.graphql",
-        "tadaOutputLocation": "src/lib/graphql/graphql-env.d.ts"
+        "schema": "http://localhost:3000/admin-api",
+        "tadaOutputLocation": "./src/lib/graphql/graphql-env.d.ts"
       }
     ]
   }

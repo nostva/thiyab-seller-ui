@@ -1,4 +1,4 @@
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { useBlocker } from '@tanstack/react-router'
 import type { UseFormReturn } from 'react-hook-form'
 

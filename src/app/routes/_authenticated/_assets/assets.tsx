@@ -4,7 +4,7 @@ import {
   PageBlock,
   PageTitle,
 } from '@/framework/layout-engine/page-layout.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { createFileRoute } from '@tanstack/react-router'
 import { DeleteAssetsBulkAction } from './components/asset-bulk-actions.js'
 

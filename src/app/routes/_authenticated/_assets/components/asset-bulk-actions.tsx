@@ -4,9 +4,9 @@ import { toast } from 'sonner'
 
 import { DataTableBulkActionItem } from '@/components/data-table/data-table-bulk-action-item.js'
 import { api } from '@/graphql/api.js'
-import { AssetFragment } from '@/graphql/fragments.js'
-import { ResultOf } from '@/graphql/graphql.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { type AssetFragment } from '@/graphql/fragments.js'
+import { type ResultOf } from '@/graphql/graphql.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { deleteAssetsDocument } from '../assets.graphql.js'
 
 export const DeleteAssetsBulkAction = ({
@@ -21,10 +21,24 @@ export const DeleteAssetsBulkAction = ({
     mutationFn: api.mutate(deleteAssetsDocument),
     onSuccess: (result: ResultOf<typeof deleteAssetsDocument>) => {
       if (result.deleteAssets.result === 'DELETED') {
-        toast.success(i18n.t(`Deleted ${selection.length} assets`))
+        toast.success(
+          i18n._({
+            id: 'assets-deleted',
+            values: {
+              count: selection.length,
+            },
+            message: 'Deleted {count.length} assets',
+          }),
+        )
       } else {
         toast.error(
-          i18n.t(`Failed to delete assets: ${result.deleteAssets.message}`),
+          i18n._({
+            id: 'failed-to-delete-assets',
+            values: {
+              error: result.deleteAssets.message,
+            },
+            message: 'Failed to delete assets: {error}',
+          }),
         )
       }
       refetch()

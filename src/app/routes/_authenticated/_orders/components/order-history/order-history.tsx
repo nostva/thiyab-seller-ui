@@ -7,7 +7,7 @@ import { HistoryNoteInput } from '@/components/shared/history-timeline/history-n
 import { HistoryTimeline } from '@/components/shared/history-timeline/history-timeline.js'
 import { Badge } from '@/components/ui/badge.js'
 import { Button } from '@/components/ui/button.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import {
   ArrowRightToLine,
   Ban,

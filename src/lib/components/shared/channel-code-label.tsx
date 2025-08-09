@@ -1,5 +1,5 @@
 import { DEFAULT_CHANNEL_CODE } from '@/constants.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 
 export function ChannelCodeLabel({
   code,

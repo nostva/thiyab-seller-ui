@@ -1,9 +1,9 @@
-import { ErrorPage } from '@/components/shared/error-page'
-import { FormFieldWrapper } from '@/components/shared/form-field-wrapper'
-import { PermissionGuard } from '@/components/shared/permission-guard'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { NEW_ENTITY_PATH } from '@/constants'
+import { ErrorPage } from '@/components/shared/error-page.js'
+import { FormFieldWrapper } from '@/components/shared/form-field-wrapper.js'
+import { PermissionGuard } from '@/components/shared/permission-guard.js'
+import { Button } from '@/components/ui/button.js'
+import { Input } from '@/components/ui/input.js'
+import { NEW_ENTITY_PATH } from '@/constants.js'
 import {
   CustomFieldsPageBlock,
   DetailFormGrid,
@@ -13,13 +13,13 @@ import {
   PageBlock,
   PageLayout,
   PageTitle,
-} from '@/framework/layout-engine/page-layout'
-import { detailPageRouteLoader } from '@/framework/page/detail-page-route-loader'
-import { useDetailPage } from '@/framework/page/use-detail-page'
-import { Trans, useLingui } from '@/lib/trans'
+} from '@/framework/layout-engine/page-layout.js'
+import { detailPageRouteLoader } from '@/framework/page/detail-page-route-loader.js'
+import { useDetailPage } from '@/framework/page/use-detail-page.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { toast } from 'sonner'
-import { ZoneCountriesTable } from './components/zone-countries-table'
+import { ZoneCountriesTable } from './components/zone-countries-table.js'
 import {
   createZoneDocument,
   updateZoneDocument,

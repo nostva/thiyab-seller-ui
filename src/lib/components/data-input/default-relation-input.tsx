@@ -1,5 +1,5 @@
 import { graphql } from '@/graphql/graphql.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 import type { RelationCustomFieldConfig } from '@vendure/common/lib/generated-types'
 import type { ControllerRenderProps } from 'react-hook-form'
 import { MultiRelationInput, SingleRelationInput } from './relation-input.js'
@@ -111,7 +111,13 @@ function createBaseEntityConfig(
   return {
     idKey: 'id',
     labelKey,
-    placeholder: i18n.t(`Search ${entityName.toLowerCase()}s...`),
+    placeholder: i18n._({
+      id: 'search-entities',
+      values: {
+        entityName: entityName.toLowerCase(),
+      },
+      message: 'Search {entityName}s...',
+    }),
     buildSearchFilter: (term: string) => ({
       [searchField]: { contains: term },
     }),

@@ -1,5 +1,5 @@
 import type { DataInputComponent } from '@/framework/component-registry/component-registry.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 
 export const CombinationModeInput: DataInputComponent = ({
   value,

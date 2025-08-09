@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/dropdown-menu.js'
 import { api } from '@/graphql/api.js'
 import type { ConfigurableOperationDefFragment } from '@/graphql/fragments.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { useQuery } from '@tanstack/react-query'
 import type { ConfigurableOperationInput as ConfigurableOperationInputType } from '@vendure/common/lib/generated-types'
 import { Plus } from 'lucide-react'

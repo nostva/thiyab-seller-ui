@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button.js'
+import { Card, CardContent } from '@/components/ui/card.js'
+import { Input } from '@/components/ui/input.js'
+import { cn } from '@/lib/utils.js'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Trans } from '@lingui/react/macro'
 import { Loader2 } from 'lucide-react'
@@ -16,7 +16,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form'
+} from '../ui/form.js'
 
 export interface LoginFormProps extends React.ComponentProps<'div'> {
   loginError?: string

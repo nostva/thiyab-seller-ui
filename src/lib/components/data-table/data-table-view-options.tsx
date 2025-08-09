@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/dropdown-menu.js'
 import { usePage } from '@/hooks/use-page.js'
 import { useUserSettings } from '@/hooks/use-user-settings.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 
 interface DataTableViewOptionsProps<TData> {
   table: Table<TData>

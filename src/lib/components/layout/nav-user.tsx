@@ -32,7 +32,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar.js'
 import { useUserSettings } from '@/hooks/use-user-settings.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import type { Theme } from '@/providers/theme-provider.js'
 import { useMemo } from 'react'
 import { Dialog, DialogTrigger } from '../ui/dialog.js'

@@ -22,7 +22,7 @@ import {
 import { api } from '@/graphql/api.js'
 import { assetFragment, type AssetFragment } from '@/graphql/fragments.js'
 import { graphql } from '@/graphql/graphql.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { formatFileSize } from '@/lib/utils.js'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useDebounce } from '@uidotdev/usehooks'

@@ -8,7 +8,7 @@ import {
 import { InputComponent } from '@/framework/component-registry/dynamic-component.js'
 import { api } from '@/graphql/api.js'
 import type { ConfigurableOperationDefFragment } from '@/graphql/fragments.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import {
   type DefinedInitialDataOptions,
   useQuery,

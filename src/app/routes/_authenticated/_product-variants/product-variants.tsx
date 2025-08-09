@@ -3,7 +3,7 @@ import { DetailPageButton } from '@/components/shared/detail-page-button.js'
 import { StockLevelLabel } from '@/components/shared/stock-level-label.js'
 import { ListPage } from '@/framework/page/list-page.js'
 import { useLocalFormat } from '@/hooks/use-local-format.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { createFileRoute } from '@tanstack/react-router'
 import {
   AssignFacetValuesToProductVariantsBulkAction,

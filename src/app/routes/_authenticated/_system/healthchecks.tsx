@@ -10,12 +10,12 @@ import {
   PageActionBar,
   PageTitle,
 } from '@/framework/layout-engine/page-layout.js'
-import { Trans } from '@/lib/trans.js'
+import { API_SERVER_URL } from '@/graphql/api.js'
+import { Trans } from '@lingui/react/macro'
 import { useQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import { formatRelative } from 'date-fns'
 import { CheckCircle2Icon, CircleXIcon } from 'lucide-react'
-import { uiConfig } from 'virtual:vendure-ui-config'
 
 export const Route = createFileRoute('/_authenticated/_system/healthchecks')({
   component: HealthchecksPage,
@@ -36,11 +36,7 @@ function HealthchecksPage() {
   const { data, refetch, dataUpdatedAt } = useQuery({
     queryKey: ['healthchecks'],
     queryFn: async () => {
-      const schemeAndHost =
-        uiConfig.api.host +
-        (uiConfig.api.port !== 'auto' ? `:${uiConfig.api.port}` : '')
-
-      const res = await fetch(`${schemeAndHost}/health`)
+      const res = await fetch(`${API_SERVER_URL}/health`)
       return res.json() as Promise<HealthcheckResponse>
     },
     refetchInterval: 5000,

@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/table.js'
 import { api } from '@/graphql/api.js'
 import { graphql } from '@/graphql/graphql.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useQuery } from '@tanstack/react-query'
 import { Plus, Trash2 } from 'lucide-react'

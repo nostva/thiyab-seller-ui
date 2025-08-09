@@ -12,7 +12,7 @@ import {
   TableRow,
 } from '@/components/ui/table.js'
 import { ResultOf } from '@/graphql/graphql.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import {
   ColumnDef,
   flexRender,

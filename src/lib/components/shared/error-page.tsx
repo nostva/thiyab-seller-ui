@@ -4,7 +4,7 @@ import {
   PageLayout,
   PageTitle,
 } from '@/framework/layout-engine/page-layout.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { AlertCircle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert.js'
 

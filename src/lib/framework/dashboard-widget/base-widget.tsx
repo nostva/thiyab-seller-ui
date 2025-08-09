@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from '@/components/ui/card.js'
 import type { DashboardBaseWidgetProps } from '@/framework/extension-api/types/index.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { cn } from '@/lib/utils.js'
 import { createContext, useContext, useEffect, useRef, useState } from 'react'
 

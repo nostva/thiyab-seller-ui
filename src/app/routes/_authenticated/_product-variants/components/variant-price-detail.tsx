@@ -2,7 +2,7 @@ import { Money } from '@/components/data-display/money.js'
 import { api } from '@/graphql/api.js'
 import { graphql } from '@/graphql/graphql.js'
 import { useChannel } from '@/hooks/use-channel.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 

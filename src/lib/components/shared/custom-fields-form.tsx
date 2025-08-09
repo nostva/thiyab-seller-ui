@@ -17,7 +17,7 @@ import {
 import { CustomFormComponent } from '@/framework/form-engine/custom-form-component.js'
 import { useCustomFieldConfig } from '@/hooks/use-custom-field-config.js'
 import { useUserSettings } from '@/hooks/use-user-settings.js'
-import { useLingui } from '@/lib/trans.js'
+import { useLingui } from '@lingui/react/macro'
 import { customFieldConfigFragment } from '@/providers/server-config.js'
 import type { ResultOf } from 'gql.tada'
 import React, { useMemo } from 'react'

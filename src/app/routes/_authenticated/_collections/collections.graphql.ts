@@ -4,8 +4,11 @@ import {
   configurableOperationDefFragment,
   configurableOperationFragment,
 } from '@/graphql/fragments.js'
-import { graphql, ResultOf } from '@/graphql/graphql.js'
-import { DefinedInitialDataOptions, queryOptions } from '@tanstack/react-query'
+import { graphql, type ResultOf } from '@/graphql/graphql.js'
+import {
+  type DefinedInitialDataOptions,
+  queryOptions,
+} from '@tanstack/react-query'
 
 export const collectionListDocument = graphql(
   `

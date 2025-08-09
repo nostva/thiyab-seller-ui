@@ -17,7 +17,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog.js'
 import { ResultOf } from '@/graphql/graphql.js'
-import { Trans, useLingui } from '@/lib/trans.js'
+import { Trans, useLingui } from '@lingui/react/macro'
 
 import { getDetailQueryOptions } from '@/framework/page/use-detail-page.js'
 
@@ -77,9 +77,14 @@ export function AssignFacetValuesDialog({
     mutationFn,
     onSuccess: () => {
       toast.success(
-        i18n.t(
-          `Successfully updated facet values for ${entityIds.length} ${entityType}`,
-        ),
+        i18n._({
+          id: 'successfully-updated-facet-values',
+          values: {
+            count: entityIds.length,
+            entityType: entityType.toLowerCase(),
+          },
+          message: 'Successfully updated facet values for {count} {entityType}',
+        }),
       )
       onSuccess?.()
       onOpenChange(false)

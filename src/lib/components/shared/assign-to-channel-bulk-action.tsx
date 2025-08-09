@@ -5,7 +5,7 @@ import { DataTableBulkActionItem } from '@/components/data-table/data-table-bulk
 import { AssignToChannelDialog } from '@/components/shared/assign-to-channel-dialog.js'
 import { usePaginatedList } from '@/components/shared/paginated-list-data-table.js'
 import { useChannel } from '@/hooks/use-channel.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 
 interface AssignToChannelBulkActionProps {
   selection: any[]

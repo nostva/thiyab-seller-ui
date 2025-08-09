@@ -3,7 +3,7 @@ import { parse } from 'graphql'
 
 import { addDisplayComponent } from '../display-component-extensions.js'
 import { addInputComponent } from '../input-component-extensions.js'
-import { DashboardDetailFormExtensionDefinition } from '../types/detail-forms.js'
+import type { DashboardDetailFormExtensionDefinition } from '../types/detail-forms.js'
 
 export function registerDetailFormExtensions(
   detailForms?: DashboardDetailFormExtensionDefinition[],

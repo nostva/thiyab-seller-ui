@@ -1,5 +1,5 @@
 import { TableCell, TableRow } from '@/components/ui/table.js'
-import { Trans } from '@/lib/trans.js'
+import { Trans } from '@lingui/react/macro'
 import { Order } from '../utils/order-types.js'
 import { MoneyGrossNet } from './money-gross-net.js'
 

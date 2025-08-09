@@ -1,4 +1,4 @@
-import { PageContext } from '@/framework/layout-engine/page-provider'
+import { PageContext } from '@/framework/layout-engine/page-provider.js'
 import { useContext } from 'react'
 
 export function usePage() {
