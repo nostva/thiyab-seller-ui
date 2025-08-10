@@ -10,7 +10,7 @@ import {
   PageActionBar,
   PageTitle,
 } from '@/framework/layout-engine/page-layout.js'
-import { API_SERVER_URL } from '@/graphql/api.js'
+import { API_SERVER_HEALTH_URL } from '@/graphql/api.js'
 import { Trans } from '@lingui/react/macro'
 import { useQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
@@ -36,7 +36,7 @@ function HealthchecksPage() {
   const { data, refetch, dataUpdatedAt } = useQuery({
     queryKey: ['healthchecks'],
     queryFn: async () => {
-      const res = await fetch(`${API_SERVER_URL}/health`)
+      const res = await fetch(`${API_SERVER_HEALTH_URL}`)
       return res.json() as Promise<HealthcheckResponse>
     },
     refetchInterval: 5000,

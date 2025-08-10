@@ -10,157 +10,157 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/lib/hooks/use-extended-list-query.ts:37
 msgid "Failed to extend query document"
-msgstr ""
+msgstr "فشل في توسيع مستند الاستعلام"
 
 #. js-lingui-explicit-id
 #: src/lib/hooks/use-extended-list-query.ts:43
 msgid "Query extension is invalid: must have at least one top-level field"
-msgstr ""
+msgstr "توسيع الاستعلام غير صالح: يجب أن يحتوي على حقل واحد على الأقل في المستوى الأعلى"
 
 #. js-lingui-explicit-id
 #: src/lib/hooks/use-extended-list-query.ts:50
 msgid "Query extension mismatch: "
-msgstr ""
+msgstr "عدم تطابق توسيع الاستعلام: "
 
 #. js-lingui-explicit-id
 #: src/lib/hooks/use-extended-list-query.ts:52
 msgid "Query extension contains invalid GraphQL syntax"
-msgstr ""
+msgstr "توسيع الاستعلام يحتوي على صيغة GraphQL غير صالحة"
 
 #. js-lingui-explicit-id
 #: src/lib/hooks/use-extended-list-query.ts:56
 msgid "Query extension error: "
-msgstr ""
+msgstr "خطأ في توسيع الاستعلام: "
 
 #. js-lingui-explicit-id
 #: src/lib/hooks/use-extended-list-query.ts:69
 #: src/lib/hooks/use-extended-detail-query.ts:26
 msgid "Query extension error"
-msgstr ""
+msgstr "خطأ في توسيع الاستعلام"
 
 #. js-lingui-explicit-id
 #: src/lib/hooks/use-extended-list-query.ts:73
 #: src/lib/hooks/use-extended-detail-query.ts:30
 msgid "The page will continue with the default query."
-msgstr ""
+msgstr "ستواصل الصفحة بالاستعلام الافتراضي."
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/stock-level-label.tsx:27
 msgid "Stock on hand"
-msgstr ""
+msgstr "المخزون المتاح"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/stock-level-label.tsx:27
 msgid "Stock allocated"
-msgstr ""
+msgstr "المخزون المخصص"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/role-selector.tsx:52
 msgid "Select a role"
-msgstr ""
+msgstr "اختر دورًا"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/role-selector.tsx:53
 msgid "Search roles..."
-msgstr ""
+msgstr "البحث في الأدوار..."
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/language-selector.tsx:50
 msgid "Select a language"
-msgstr ""
+msgstr "اختر لغة"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/language-selector.tsx:51
 msgid "Search languages..."
-msgstr ""
+msgstr "البحث في اللغات..."
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/customer-address-form.tsx:262
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:275
 msgid "Select a country"
-msgstr ""
+msgstr "اختر بلدًا"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/custom-fields-form.tsx:123
 msgid "General"
-msgstr ""
+msgstr "عام"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/currency-selector.tsx:33
 msgid "Select a currency"
-msgstr ""
+msgstr "اختر عملة"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/currency-selector.tsx:34
 msgid "Search currencies..."
-msgstr ""
+msgstr "البحث في العملات..."
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/channel-selector.tsx:49
 #: src/lib/components/shared/assign-to-channel-dialog.tsx:131
 msgid "Select a channel"
-msgstr ""
+msgstr "اختر قناة"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/channel-selector.tsx:50
 msgid "Search channels..."
-msgstr ""
+msgstr "البحث في القنوات..."
 
 #. js-lingui-explicit-id
 #: src/lib/components/data-table/use-generated-columns.tsx:336
 msgid "Deleted successfully"
-msgstr ""
+msgstr "تم الحذف بنجاح"
 
 #. js-lingui-explicit-id
 #: src/lib/components/data-table/use-generated-columns.tsx:338
 #: src/lib/components/data-table/use-generated-columns.tsx:344
 msgid "Failed to delete"
-msgstr ""
+msgstr "فشل في الحذف"
 
 #. js-lingui-explicit-id
 #: src/lib/components/data-input/custom-field-list-input.tsx:86
 msgid "Drag to reorder"
-msgstr ""
+msgstr "اسحب لإعادة الترتيب"
 
 #. js-lingui-explicit-id
 #: src/lib/components/data-input/custom-field-list-input.tsx:99
 msgid "Remove item"
-msgstr ""
+msgstr "إزالة عنصر"
 
 #. js-lingui-explicit-id
 #: src/lib/components/data-input/custom-field-list-input.tsx:326
 msgid "Add item"
-msgstr ""
+msgstr "إضافة عنصر"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_zones/zones_.$id.tsx:66
 msgid "Successfully updated zone"
-msgstr ""
+msgstr "تم تحديث المنطقة بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_zones/zones_.$id.tsx:73
 msgid "Failed to update zone"
-msgstr ""
+msgstr "فشل في تحديث المنطقة"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_tax-rates/tax-rates_.$id.tsx:76
 msgid "Successfully updated tax rate"
-msgstr ""
+msgstr "تم تحديث معدل الضريبة بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_tax-rates/tax-rates_.$id.tsx:83
 msgid "Failed to update tax rate"
-msgstr ""
+msgstr "فشل في تحديث معدل الضريبة"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_tax-categories/tax-categories_.$id.tsx:68
 msgid "Successfully updated tax category"
-msgstr ""
+msgstr "تم تحديث فئة الضريبة بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_tax-categories/tax-categories_.$id.tsx:75
 msgid "Failed to update tax category"
-msgstr ""
+msgstr "فشل في تحديث فئة الضريبة"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_system/scheduled-tasks.tsx:94
@@ -175,12 +175,12 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_stock-locations/stock-locations_.$id.tsx:69
 msgid "Successfully updated stock location"
-msgstr ""
+msgstr "تم تحديث موقع المخزون بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_stock-locations/stock-locations_.$id.tsx:76
 msgid "Failed to update stock location"
-msgstr ""
+msgstr "فشل في تحديث موقع المخزون"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_shipping-methods/shipping-methods_.$id.tsx:89
@@ -237,13 +237,13 @@ msgstr ""
 #: src/app/routes/_authenticated/_products/products_.$id.tsx:97
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:120
 msgid "Successfully updated product"
-msgstr ""
+msgstr "تم تحديث المنتج بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_products/products_.$id.tsx:104
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:127
 msgid "Failed to update product"
-msgstr ""
+msgstr "فشل في تحديث المنتج"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_products/components/product-option-select.tsx:74
@@ -378,13 +378,13 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:132
 #: src/app/routes/_authenticated/_orders/orders_.$id.tsx:114
 msgid "Successfully updated order"
-msgstr ""
+msgstr "تم تحديث الطلب بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:136
 #: src/app/routes/_authenticated/_orders/orders_.$id.tsx:118
 msgid "Failed to update order"
-msgstr ""
+msgstr "فشل في تحديث الطلب"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_orders/orders_.$id.tsx:138
@@ -564,13 +564,13 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:99
 msgid "Successfully updated customer"
-msgstr ""
+msgstr "تم تحديث العميل بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:105
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:111
 msgid "Failed to update customer"
-msgstr ""
+msgstr "فشل في تحديث العميل"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:124
@@ -646,12 +646,12 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:100
 msgid "Successfully updated collection"
-msgstr ""
+msgstr "تم تحديث المجموعة بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:107
 msgid "Failed to update collection"
-msgstr ""
+msgstr "فشل في تحديث المجموعة"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_collections/components/move-collections-dialog.tsx:298
@@ -676,23 +676,23 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_channels/channels_.$id.tsx:93
 msgid "Successfully updated channel"
-msgstr ""
+msgstr "تم تحديث القناة بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_channels/channels_.$id.tsx:99
 #: src/app/routes/_authenticated/_channels/channels_.$id.tsx:105
 msgid "Failed to update channel"
-msgstr ""
+msgstr "فشل في تحديث القناة"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_assets/assets_.$id.tsx:71
 msgid "Successfully updated asset"
-msgstr ""
+msgstr "تم تحديث الأصل بنجاح"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_assets/assets_.$id.tsx:75
 msgid "Failed to update asset"
-msgstr ""
+msgstr "فشل في تحديث الأصل"
 
 #. js-lingui-explicit-id
 #: src/app/routes/_authenticated/_administrators/administrators_.$id.tsx:79
@@ -784,7 +784,7 @@ msgstr ""
 #: src/lib/components/data-table/use-generated-columns.tsx:274
 #: src/app/routes/_authenticated/_promotions/promotions_.$id.tsx:261
 msgid "Actions"
-msgstr ""
+msgstr "الإجراءات"
 
 #: src/app/routes/_authenticated/_products/components/product-option-select.tsx:91
 msgid "Add \"{newOptionInput}\""
@@ -830,7 +830,7 @@ msgstr ""
 
 #: src/lib/components/data-table/add-filter-menu.tsx:34
 msgid "Add filter"
-msgstr ""
+msgstr "إضافة فلتر"
 
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:243
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:249
@@ -896,7 +896,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:577
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:221
 msgid "Addresses"
-msgstr ""
+msgstr "العناوين"
 
 #. placeholder {0}: adjustedLines.length
 #: src/app/routes/_authenticated/_orders/components/order-modification-summary.tsx:147
@@ -905,7 +905,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_administrators/administrators.tsx:21
 msgid "Administrators"
-msgstr ""
+msgstr "المديرون"
 
 #: src/lib/components/data-table/human-readable-operator.tsx:34
 msgid "after"
@@ -921,7 +921,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:188
 msgid "Amount"
-msgstr ""
+msgstr "المبلغ"
 
 #: src/app/routes/_authenticated/_orders/components/order-modification-preview-dialog.tsx:331
 msgid "An additional payment of {formattedDiff} will be required."
@@ -934,11 +934,11 @@ msgstr ""
 #: src/lib/components/shared/customer-address-form.tsx:168
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:181
 msgid "Apartment, suite, etc."
-msgstr ""
+msgstr "الشقة، الجناح، إلخ"
 
 #: src/lib/components/data-table/data-table-filter-dialog.tsx:86
 msgid "Apply filter"
-msgstr ""
+msgstr "تطبيق الفلتر"
 
 #. placeholder {0}: selection.length
 #: src/app/common/delete-bulk-action.tsx:154
@@ -968,7 +968,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:222
 #: src/app/routes/_authenticated/_assets/assets.tsx:19
 msgid "Assets"
-msgstr ""
+msgstr "الأصول"
 
 #: src/lib/components/shared/assign-to-channel-dialog.tsx:152
 msgid "Assign"
@@ -1019,7 +1019,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:607
 #: src/app/routes/_authenticated/_orders/orders_.$id.tsx:308
 msgid "Billing address"
-msgstr ""
+msgstr "عنوان الفواتير"
 
 #: src/app/routes/_authenticated/_orders/components/order-modification-summary.tsx:133
 msgid "Billing address changed"
@@ -1028,7 +1028,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_shipping-methods/shipping-methods_.$id.tsx:192
 #: src/app/routes/_authenticated/_payment-methods/payment-methods_.$id.tsx:201
 msgid "Calculator"
-msgstr ""
+msgstr "الحاسبة"
 
 #: src/lib/components/shared/navigation-confirmation.tsx:57
 #: src/lib/components/shared/customer-address-form.tsx:353
@@ -1047,7 +1047,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:366
 #: src/app/routes/_authenticated/_collections/components/move-collections-dialog.tsx:429
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #: src/app/routes/_authenticated/_system/job-queue.tsx:205
 msgid "Cancel Job"
@@ -1059,7 +1059,7 @@ msgstr ""
 
 #: src/lib/components/shared/assign-to-channel-dialog.tsx:124
 msgid "Channel"
-msgstr ""
+msgstr "قناة"
 
 #: src/app/routes/_authenticated/_channels/channels_.$id.tsx:208
 msgid "Channel defaults"
@@ -1073,20 +1073,20 @@ msgstr ""
 #: src/app/routes/_authenticated/_roles/roles_.$id.tsx:132
 #: src/app/routes/_authenticated/_channels/channels.tsx:16
 msgid "Channels"
-msgstr ""
+msgstr "القنوات"
 
 #: src/lib/components/shared/customer-address-form.tsx:189
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:202
 msgid "City"
-msgstr ""
+msgstr "المدينة"
 
 #: src/lib/components/data-input/product-multi-selector.tsx:339
 msgid "Clear"
-msgstr ""
+msgstr "مسح"
 
 #: src/lib/components/data-table/data-table-filter-dialog.tsx:74
 msgid "Clear filter"
-msgstr ""
+msgstr "مسح الفلتر"
 
 #: src/app/routes/_authenticated/_shipping-methods/shipping-methods_.$id.tsx:142
 #: src/app/routes/_authenticated/_roles/roles_.$id.tsx:121
@@ -1097,7 +1097,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_countries/countries_.$id.tsx:129
 #: src/app/routes/_authenticated/_channels/channels_.$id.tsx:150
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 #: src/app/routes/_authenticated/_collections/components/collection-contents-sheet.tsx:36
 msgid "Collection contents for {collectionName}"
@@ -1105,16 +1105,16 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_collections/collections.tsx:34
 msgid "Collections"
-msgstr ""
+msgstr "المجموعات"
 
 #: src/lib/components/data-table/data-table-view-options.tsx:103
 msgid "Columns"
-msgstr ""
+msgstr "الأعمدة"
 
 #: src/lib/components/shared/customer-address-form.tsx:126
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:139
 msgid "Company"
-msgstr ""
+msgstr "الشركة"
 
 #: src/app/routes/_authenticated/_orders/orders_.draft.$id.tsx:366
 msgid "Complete draft"
@@ -1123,7 +1123,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_shipping-methods/shipping-methods_.$id.tsx:176
 #: src/app/routes/_authenticated/_promotions/promotions_.$id.tsx:245
 msgid "Conditions"
-msgstr ""
+msgstr "الشروط"
 
 #: src/lib/components/layout/manage-languages-dialog.tsx:291
 msgid "Configure available languages for your store and channels"
@@ -1152,7 +1152,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:253
 msgid "Contents"
-msgstr ""
+msgstr "المحتويات"
 
 #: src/lib/components/shared/confirmation-dialog.tsx:52
 #: src/lib/components/data-table/data-table-bulk-action-item.tsx:85
@@ -1162,12 +1162,12 @@ msgstr ""
 #: src/app/routes/_authenticated/_zones/zones_.$id.tsx:123
 #: src/app/routes/_authenticated/_countries/countries.tsx:17
 msgid "Countries"
-msgstr ""
+msgstr "البلدان"
 
 #: src/lib/components/shared/customer-address-form.tsx:252
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:265
 msgid "Country"
-msgstr ""
+msgstr "البلد"
 
 #: src/app/routes/_authenticated/_promotions/promotions_.$id.tsx:208
 msgid "Coupon code"
@@ -1175,7 +1175,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_products/components/create-product-variants.tsx:326
 msgid "Create"
-msgstr ""
+msgstr "إنشاء"
 
 #. placeholder {0}: variantData ? Object.values(variantData.variants).filter( (v) => v.enabled, ).length : 0
 #: src/app/routes/_authenticated/_products/components/create-product-variants-dialog.tsx:228
@@ -1205,12 +1205,12 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/fulfillment-details.tsx:130
 msgid "Created"
-msgstr ""
+msgstr "أنشئ"
 
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:192
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:251
 msgid "Created at"
-msgstr ""
+msgstr "أنشئ في"
 
 #: src/app/routes/_authenticated/_products/components/create-product-variants-dialog.tsx:226
 msgid "Creating..."
@@ -1237,7 +1237,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:559
 #: src/app/routes/_authenticated/_orders/orders_.$id.tsx:288
 msgid "Customer"
-msgstr ""
+msgstr "العميل"
 
 #: src/app/routes/_authenticated/_customer-groups/components/customer-group-members-sheet.tsx:36
 msgid "Customer group members for {customerGroupName}"
@@ -1249,7 +1249,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_customer-groups/customer-groups.tsx:20
 msgid "Customer Groups"
-msgstr ""
+msgstr "مجموعات العملاء"
 
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:278
 msgid "Customer history"
@@ -1267,7 +1267,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_customers/customers.tsx:18
 #: src/app/routes/_authenticated/_customer-groups/customer-groups_.$id.tsx:127
 msgid "Customers"
-msgstr ""
+msgstr "العملاء"
 
 #: src/lib/components/shared/customer-address-form.tsx:338
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:351
@@ -1308,7 +1308,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_assets/components/asset-bulk-actions.tsx:57
 #: src/app/common/delete-bulk-action.tsx:152
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: src/app/routes/_authenticated/_orders/orders_.draft.$id.tsx:349
 msgid "Delete draft"
@@ -1333,7 +1333,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/components/order-tax-summary.tsx:21
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:180
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #: src/lib/components/layout/dev-mode-indicator.tsx:12
 msgid "Dev Mode"
@@ -1346,11 +1346,11 @@ msgstr ""
 #: src/lib/components/layout/nav-user.tsx:173
 #: src/app/routes/_authenticated/_system/scheduled-tasks.tsx:128
 msgid "Disabled"
-msgstr ""
+msgstr "معطّل"
 
 #: src/app/routes/_authenticated/_orders/components/order-table-totals.tsx:23
 msgid "Discount"
-msgstr ""
+msgstr "الخصم"
 
 #: src/lib/components/layout/language-dialog.tsx:40
 msgid "Display language"
@@ -1358,7 +1358,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:297
 msgid "Do not track"
-msgstr ""
+msgstr "لا تتبع"
 
 #: src/lib/components/data-table/human-readable-operator.tsx:74
 msgid "does not contain"
@@ -1367,7 +1367,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/orders_.draft.$id.tsx:334
 #: src/app/routes/_authenticated/_orders/orders.tsx:147
 msgid "Draft order"
-msgstr ""
+msgstr "طلب مسودة"
 
 #: src/app/common/duplicate-bulk-action.tsx:137
 msgid "Duplicate"
@@ -1384,7 +1384,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:588
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:614
 msgid "Edit"
-msgstr ""
+msgstr "تحرير"
 
 #: src/app/routes/_authenticated/_customers/components/customer-address-card.tsx:132
 msgid "Edit Address"
@@ -1414,12 +1414,12 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:199
 msgid "Email address"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني"
 
 #: src/app/routes/_authenticated/_profile/profile.tsx:109
 #: src/app/routes/_authenticated/_administrators/administrators_.$id.tsx:138
 msgid "Email Address or identifier"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني أو المعرف"
 
 #: src/app/routes/_authenticated/_system/scheduled-tasks.tsx:233
 msgid "Enable"
@@ -1434,7 +1434,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_payment-methods/payment-methods_.$id.tsx:146
 #: src/app/routes/_authenticated/_countries/countries_.$id.tsx:111
 msgid "Enabled"
-msgstr ""
+msgstr "مفعّل"
 
 #: src/app/routes/_authenticated/_promotions/promotions_.$id.tsx:197
 msgid "Ends at"
@@ -1446,7 +1446,7 @@ msgstr ""
 
 #: src/lib/components/shared/error-page.tsx:23
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 #. placeholder {0}: error.message
 #: src/app/routes/_authenticated/_orders/components/order-history/order-history-container.tsx:48
@@ -1494,7 +1494,7 @@ msgstr ""
 #: src/lib/components/shared/facet-value-selector.tsx:282
 #: src/app/routes/_authenticated/_facets/facets.tsx:22
 msgid "Facets"
-msgstr ""
+msgstr "الخصائص"
 
 #. js-lingui-explicit-id
 #: src/app/common/delete-bulk-action.tsx:120
@@ -1517,7 +1517,7 @@ msgstr ""
 
 #: src/lib/components/data-table/filters/data-table-boolean-filter.tsx:63
 msgid "False"
-msgstr ""
+msgstr "خاطئ"
 
 #: src/lib/components/data-table/data-table-filter-dialog.tsx:39
 msgid "Filter by {columnId}"
@@ -1525,13 +1525,13 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:192
 msgid "Filters"
-msgstr ""
+msgstr "الفلاتر"
 
 #: src/app/routes/_authenticated/_profile/profile.tsx:97
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:187
 #: src/app/routes/_authenticated/_administrators/administrators_.$id.tsx:126
 msgid "First name"
-msgstr ""
+msgstr "الاسم الأول"
 
 #: src/app/routes/_authenticated/_assets/assets_.$id.tsx:171
 msgid "Focal Point"
@@ -1548,7 +1548,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/components/fulfill-order-dialog.tsx:245
 #: src/app/routes/_authenticated/_orders/components/fulfill-order-dialog.tsx:336
 msgid "Fulfill order"
-msgstr ""
+msgstr "تنفيذ الطلب"
 
 #. placeholder {0}: fulfillment.lines.reduce( (acc, line) => acc + line.quantity, 0, )
 #: src/app/routes/_authenticated/_orders/components/fulfillment-details.tsx:139
@@ -1597,7 +1597,7 @@ msgstr ""
 #: src/lib/components/shared/customer-address-form.tsx:105
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:118
 msgid "Full Name"
-msgstr ""
+msgstr "الاسم الكامل"
 
 #: src/lib/components/layout/manage-languages-dialog.tsx:302
 msgid "Global Languages"
@@ -1610,7 +1610,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_global-settings/global-settings.tsx:50
 #: src/app/routes/_authenticated/_global-settings/global-settings.tsx:106
 msgid "Global settings"
-msgstr ""
+msgstr "الإعدادات العامة"
 
 #: src/lib/components/data-table/human-readable-operator.tsx:49
 msgid "greater than"
@@ -1702,13 +1702,13 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_system/job-queue.tsx:37
 msgid "Job Queue"
-msgstr ""
+msgstr "طابور المهام"
 
 #: src/app/routes/_authenticated/_profile/profile.tsx:103
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:193
 #: src/app/routes/_authenticated/_administrators/administrators_.$id.tsx:132
 msgid "Last name"
-msgstr ""
+msgstr "اسم العائلة"
 
 #. placeholder {0}: formatRelative(dataUpdatedAt, new Date())
 #: src/app/routes/_authenticated/_system/healthchecks.tsx:57
@@ -1826,7 +1826,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_countries/countries_.$id.tsx:123
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:167
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: src/app/routes/_authenticated/_system/scheduled-tasks.tsx:147
 #: src/app/routes/_authenticated/_system/scheduled-tasks.tsx:157
@@ -2176,17 +2176,17 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/orders.tsx:21
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:271
 msgid "Orders"
-msgstr ""
+msgstr "الطلبات"
 
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:306
 msgid "Out-of-stock threshold"
-msgstr ""
+msgstr "حد نفاد المخزون"
 
 #: src/lib/components/login/login-form.tsx:100
 #: src/app/routes/_authenticated/_profile/profile.tsx:115
 #: src/app/routes/_authenticated/_administrators/administrators_.$id.tsx:144
 msgid "Password"
-msgstr ""
+msgstr "كلمة المرور"
 
 #. placeholder {0}: entry.data.paymentId
 #. placeholder {1}: entry.data.to
@@ -2209,7 +2209,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/order-history/order-history.tsx:197
 msgid "Payment failed"
-msgstr ""
+msgstr "فشلت الدفعة"
 
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:215
 msgid "Payment metadata"
@@ -2218,15 +2218,15 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:184
 #: src/app/routes/_authenticated/_orders/components/add-manual-payment-dialog.tsx:156
 msgid "Payment method"
-msgstr ""
+msgstr "طريقة الدفع"
 
 #: src/app/routes/_authenticated/_payment-methods/payment-methods.tsx:24
 msgid "Payment Methods"
-msgstr ""
+msgstr "طرق الدفع"
 
 #: src/app/routes/_authenticated/_orders/components/order-history/order-history.tsx:191
 msgid "Payment settled"
-msgstr ""
+msgstr "تم تسوية الدفعة"
 
 #: src/app/routes/_authenticated/_orders/components/order-history/order-history.tsx:199
 msgid "Payment transitioned"
@@ -2238,21 +2238,21 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_roles/roles_.$id.tsx:151
 msgid "Permissions"
-msgstr ""
+msgstr "الصلاحيات"
 
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:205
 msgid "Phone number"
-msgstr ""
+msgstr "رقم الهاتف"
 
 #: src/lib/components/shared/customer-address-form.tsx:285
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:298
 msgid "Phone Number"
-msgstr ""
+msgstr "رقم الهاتف"
 
 #: src/lib/components/shared/customer-address-form.tsx:231
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:244
 msgid "Postal Code"
-msgstr ""
+msgstr "الرمز البريدي"
 
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:545
 msgid "Preview changes"
@@ -2267,7 +2267,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:222
 #: src/app/routes/_authenticated/_orders/components/shipping-method-selector.tsx:54
 msgid "Price"
-msgstr ""
+msgstr "السعر"
 
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:203
 msgid "Price and tax"
@@ -2284,7 +2284,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_facets/facets_.$id.tsx:124
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:153
 msgid "Private"
-msgstr ""
+msgstr "خاص"
 
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:155
 msgid "Private collections are not visible in the shop"
@@ -2296,17 +2296,17 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/order-table.tsx:45
 msgid "Product"
-msgstr ""
+msgstr "منتج"
 
 #: src/app/routes/_authenticated/_products/products_.$id.tsx:153
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:182
 msgid "Product name"
-msgstr ""
+msgstr "اسم المنتج"
 
 #: src/app/routes/_authenticated/_product-variants/product-variants.tsx:23
 #: src/app/routes/_authenticated/_product-variants/product-variants.tsx:31
 msgid "Product Variants"
-msgstr ""
+msgstr "متباينات المنتج"
 
 #: src/app/routes/_authenticated/_products/products.tsx:23
 #: src/app/routes/_authenticated/_products/products.tsx:32
@@ -2316,20 +2316,20 @@ msgstr "المنتجات"
 #: src/app/routes/_authenticated/_profile/profile.tsx:33
 #: src/app/routes/_authenticated/_profile/profile.tsx:77
 msgid "Profile"
-msgstr ""
+msgstr "الملف الشخصي"
 
 #: src/app/routes/_authenticated/_promotions/promotions.tsx:23
 msgid "Promotions"
-msgstr ""
+msgstr "العروض الترويجية"
 
 #: src/app/routes/_authenticated/_orders/components/order-table.tsx:91
 #: src/app/routes/_authenticated/_orders/components/fulfill-order-dialog.tsx:291
 msgid "Quantity"
-msgstr ""
+msgstr "الكمية"
 
 #: src/app/routes/_authenticated/_tax-rates/tax-rates_.$id.tsx:135
 msgid "Rate"
-msgstr ""
+msgstr "المعدل"
 
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:263
 msgid "Reason"
@@ -2356,7 +2356,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/order-history/order-history.tsx:202
 msgid "Refund settled"
-msgstr ""
+msgstr "تم تسوية الاسترداد"
 
 #: src/app/routes/_authenticated/_orders/components/order-history/order-history.tsx:204
 msgid "Refund transitioned"
@@ -2369,7 +2369,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_customers/components/customer-status-badge.tsx:25
 msgid "Registered"
-msgstr ""
+msgstr "مسجل"
 
 #: src/app/routes/_authenticated/_orders/components/order-modification-preview-dialog.tsx:296
 msgid "Remaining:"
@@ -2403,7 +2403,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_roles/roles.tsx:19
 #: src/app/routes/_authenticated/_administrators/administrators_.$id.tsx:156
 msgid "Roles"
-msgstr ""
+msgstr "الأدوار"
 
 #: src/app/routes/_authenticated/_system/scheduled-tasks.tsx:217
 msgid "Run"
@@ -2419,7 +2419,7 @@ msgstr ""
 
 #: src/lib/components/shared/history-timeline/history-note-editor.tsx:57
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: src/lib/components/shared/customer-address-form.tsx:357
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:370
@@ -2440,7 +2440,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_system/scheduled-tasks.tsx:30
 msgid "Scheduled Tasks"
-msgstr ""
+msgstr "المهام المجدولة"
 
 #. js-lingui-explicit-id
 #: src/lib/components/data-input/default-relation-input.tsx:114
@@ -2557,7 +2557,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_sellers/sellers.tsx:14
 msgid "Sellers"
-msgstr ""
+msgstr "البائعون"
 
 #: src/app/routes/_authenticated/_orders/orders_.draft.$id.tsx:446
 msgid "Set custom fields"
@@ -2588,13 +2588,13 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/order-table-totals.tsx:49
 msgid "Shipping"
-msgstr ""
+msgstr "الشحن"
 
 #: src/app/routes/_authenticated/_orders/orders_.draft.$id.tsx:476
 #: src/app/routes/_authenticated/_orders/orders_.$id_.modify.tsx:581
 #: src/app/routes/_authenticated/_orders/orders_.$id.tsx:300
 msgid "Shipping address"
-msgstr ""
+msgstr "عنوان الشحن"
 
 #: src/app/routes/_authenticated/_orders/components/order-modification-summary.tsx:126
 msgid "Shipping address changed"
@@ -2606,7 +2606,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_shipping-methods/shipping-methods.tsx:24
 msgid "Shipping Methods"
-msgstr ""
+msgstr "طرق الشحن"
 
 #. placeholder {0}: group.entries.length
 #: src/app/routes/_authenticated/_orders/components/order-history/order-history.tsx:448
@@ -2622,12 +2622,12 @@ msgstr ""
 #: src/app/routes/_authenticated/_products/components/add-product-variant-dialog.tsx:352
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:189
 msgid "SKU"
-msgstr ""
+msgstr "رقم المنتج"
 
 #: src/app/routes/_authenticated/_products/products_.$id.tsx:159
 #: src/app/routes/_authenticated/_collections/collections_.$id.tsx:173
 msgid "Slug"
-msgstr ""
+msgstr "المعرف"
 
 #: src/app/routes/_authenticated/_system/healthchecks.tsx:75
 msgid "Some resources are down"
@@ -2640,16 +2640,16 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:247
 #: src/app/routes/_authenticated/_orders/components/fulfillment-details.tsx:122
 msgid "State"
-msgstr ""
+msgstr "الحالة"
 
 #: src/lib/components/shared/customer-address-form.tsx:210
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:223
 msgid "State/Province"
-msgstr ""
+msgstr "الولاية/المحافظة"
 
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:285
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:240
 msgid "Stock"
@@ -2658,15 +2658,15 @@ msgstr ""
 #: src/app/routes/_authenticated/_products/components/add-product-variant-dialog.tsx:370
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:247
 msgid "Stock level"
-msgstr ""
+msgstr "مستوى المخزون"
 
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:274
 msgid "Stock levels"
-msgstr ""
+msgstr "مستويات المخزون"
 
 #: src/app/routes/_authenticated/_stock-locations/stock-locations.tsx:23
 msgid "Stock Locations"
-msgstr ""
+msgstr "مواقع المخزون"
 
 #: src/app/routes/_authenticated/_products/components/create-product-variants.tsx:341
 msgid "Stock on Hand"
@@ -2675,11 +2675,11 @@ msgstr ""
 #: src/lib/components/shared/customer-address-form.tsx:147
 #: src/app/routes/_authenticated/_customers/components/customer-address-form.tsx:160
 msgid "Street Address"
-msgstr ""
+msgstr "عنوان الشارع"
 
 #: src/app/routes/_authenticated/_orders/components/order-table-totals.tsx:37
 msgid "Sub total"
-msgstr ""
+msgstr "المجموع الجزئي"
 
 #. js-lingui-explicit-id
 #: src/lib/components/shared/assign-to-channel-dialog.tsx:79
@@ -2720,12 +2720,12 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_tax-categories/tax-categories.tsx:20
 msgid "Tax Categories"
-msgstr ""
+msgstr "فئات الضرائب"
 
 #: src/app/routes/_authenticated/_tax-rates/tax-rates_.$id.tsx:148
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:209
 msgid "Tax category"
-msgstr ""
+msgstr "فئة الضريبة"
 
 #: src/app/routes/_authenticated/_orders/components/order-tax-summary.tsx:24
 msgid "Tax rate"
@@ -2737,7 +2737,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_tax-rates/tax-rates.tsx:18
 msgid "Tax Rates"
-msgstr ""
+msgstr "معدلات الضرائب"
 
 #: src/app/routes/_authenticated/_orders/orders_.$id.tsx:238
 msgid "Tax summary"
@@ -2790,7 +2790,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_customers/customers_.$id.tsx:180
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
 #: src/app/routes/_authenticated/_roles/components/permissions-grid.tsx:100
 msgid "Toggle all"
@@ -2804,7 +2804,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_orders/components/order-table.tsx:134
 #: src/app/routes/_authenticated/_orders/components/order-table-totals.tsx:61
 msgid "Total"
-msgstr ""
+msgstr "المجموع"
 
 #: src/app/routes/_authenticated/_orders/components/order-modification-preview-dialog.tsx:282
 msgid "Total refund:"
@@ -2812,7 +2812,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_product-variants/product-variants_.$id.tsx:294
 msgid "Track"
-msgstr ""
+msgstr "تتبع"
 
 #: src/app/routes/_authenticated/_global-settings/global-settings.tsx:170
 msgid "Track inventory by default"
@@ -2820,14 +2820,14 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/fulfillment-details.tsx:125
 msgid "Tracking code"
-msgstr ""
+msgstr "رمز التتبع"
 
 #: src/app/routes/_authenticated/_orders/components/settle-refund-dialog.tsx:58
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:200
 #: src/app/routes/_authenticated/_orders/components/payment-details.tsx:269
 #: src/app/routes/_authenticated/_orders/components/add-manual-payment-dialog.tsx:170
 msgid "Transaction ID"
-msgstr ""
+msgstr "رقم المعاملة"
 
 #: src/app/routes/_authenticated/_orders/components/use-transition-order-to-state.tsx:153
 msgid "Transition to selected state"
@@ -2835,7 +2835,7 @@ msgstr ""
 
 #: src/lib/components/data-table/filters/data-table-boolean-filter.tsx:60
 msgid "True"
-msgstr ""
+msgstr "صحيح"
 
 #: src/lib/components/shared/facet-value-selector.tsx:234
 msgid "Type at least 2 characters to search..."
@@ -2843,11 +2843,11 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_orders/components/order-table.tsx:58
 msgid "Unit price"
-msgstr ""
+msgstr "سعر الوحدة"
 
 #: src/app/routes/_authenticated/_customers/components/customer-status-badge.tsx:30
 msgid "Unverified"
-msgstr ""
+msgstr "غير متحقق منه"
 
 #: src/lib/framework/page/detail-page.tsx:221
 #: src/app/routes/_authenticated/_zones/zones_.$id.tsx:98
@@ -2875,7 +2875,7 @@ msgstr ""
 #: src/app/routes/_authenticated/_assets/assets_.$id.tsx:110
 #: src/app/routes/_authenticated/_administrators/administrators_.$id.tsx:115
 msgid "Update"
-msgstr ""
+msgstr "تحديث"
 
 #: src/lib/components/shared/history-timeline/history-note-editor.tsx:47
 msgid "Update the note content or visibility"
@@ -2905,12 +2905,12 @@ msgstr ""
 
 #: src/lib/components/login/login-form.tsx:81
 msgid "Username"
-msgstr ""
+msgstr "اسم المستخدم"
 
 #: src/app/routes/_authenticated/_facets/facets.tsx:40
 #: src/app/routes/_authenticated/_customer-groups/customer-groups.tsx:39
 msgid "Values"
-msgstr ""
+msgstr "القيم"
 
 #: src/app/routes/_authenticated/_products/components/create-product-variants.tsx:331
 msgid "Variant"
@@ -2918,7 +2918,7 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_customers/components/customer-status-badge.tsx:20
 msgid "Verified"
-msgstr ""
+msgstr "متحقق منه"
 
 #: src/app/routes/_authenticated/_system/job-queue.tsx:120
 msgid "View job data"
@@ -2981,4 +2981,4 @@ msgstr ""
 
 #: src/app/routes/_authenticated/_zones/zones.tsx:15
 msgid "Zones"
-msgstr ""
+msgstr "المناطق"
